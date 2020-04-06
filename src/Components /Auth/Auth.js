@@ -9,14 +9,17 @@ function Auth(props) {
 
 
     const handleUsername = (event) => {
+        
         setUsername(event.target.value);
     };
 
     const handlePassword = (event) => {
+
         setPassword(event.target.value)
     }
 
     const registerUser = (event) => {
+
         event.preventDefault()
         props.register(username, password);
         setUsername('')
@@ -24,6 +27,7 @@ function Auth(props) {
     };
 
     const loginUser = event => {
+
         event.preventDefault()
         props.login(username, password)
         setUsername('')
@@ -52,6 +56,7 @@ const mapStateToProps = reduxState => {
     return {
         userReducer: reduxState.userReducer
     }
+
 }
 
 export default connect(mapStateToProps, { register, login, logout })(Auth)
