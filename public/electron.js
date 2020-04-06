@@ -27,5 +27,5 @@ function createWindow() {
     })
     mainWindow.on('page-title-updated', function (e) {
         e.preventDefault()
-    });
+    }), mainWindow.webContents.openDevTools()
 }
