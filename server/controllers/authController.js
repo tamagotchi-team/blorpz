@@ -7,14 +7,14 @@ module.exports = {
         const { session } = req
         const db = req.app.get('db')
 
-        let user = await db.check_user([username])
+        let user = await db.auth.check_user([username])
         user = user[0]
         if (user) {
             return res.status(400).send('Username already exists')
         }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        let newUser = await db.register_user({ username, hash })
+        let newUser = await db.auth.register_user({ username, hash })
         newUser = newUser[0]
         session.user = newUser
         res.status(201).send(session.user)
@@ -24,7 +24,7 @@ module.exports = {
         const { session } = req
         const db = req.app.get('db')
 
-        let user = await db.check_user([username])
+        let user = await db.auth.check_user([username])
         user = user[0]
         if (!user) {
             return res.status(400).send('Username not found')
