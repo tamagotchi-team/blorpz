@@ -10,7 +10,6 @@ CREATE TABLE blorpz (
     hunger INT,
     awake BOOLEAN,
     happy INT,
-    food INT,
     poo INT,
     age INT,
     alive BOOLEAN,
