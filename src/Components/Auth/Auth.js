@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
+import { logout, register, login } from "../../ducks/userReducer";
+import {connect} from 'react-redux'
+=======
 import { logout, register, login } from "../../ducks/userReducer"
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+>>>>>>> master
 import Landing from '../Landing/Landing'
 
 function Auth(props) {
