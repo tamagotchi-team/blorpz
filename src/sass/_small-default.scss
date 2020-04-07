@@ -2,21 +2,44 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-
 .login-screen {
     background-image: url('https://images.unsplash.com/photo-1505868900972-a7ed025e680b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80');
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+
+        .blorpz-title {
+        //  color: white;
+         font-size: 70px;
+         text-align: center;
+         color: black;
+        -webkit-text-fill-color: white; 
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        }
+
+        .landing{
+            text-align: center;
+        }
+
+        .top-img{
+            display: flex;
+            justify-content: space-around;
+            
+        }
 
     .login-container {
         display: flex;
+        opacity: .8;
         flex-direction: column;
-        width: 100%;
         align-items: center;
         float: right;
         justify-content: center;
-        height: 100%;
+        clear: left;
+        position: absolute;
+        top: 16px;
+        right: 16px;
 
         input {
             background-color: white;
@@ -26,7 +49,7 @@ body {
             font-size: 20px;
             width: 350px;
             padding: 10px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
     
         input:focus {
@@ -42,9 +65,10 @@ body {
             text-transform: uppercase;
             border: none;
             letter-spacing: 1px;
-            margin-right: 8px;
+            margin-right: 28px;
             transition: .15s ease;
             cursor: pointer;
+            border: 1px solid rgba($color: #000000, $alpha: 0.8);
             }
 
         .login-button:hover {
