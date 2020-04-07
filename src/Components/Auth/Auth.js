@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import Landing from '../Landing/Landing'
 
+
 function Auth(props) {
 
     const [username, setUsername] = useState("");
@@ -39,6 +40,7 @@ function Auth(props) {
 
     return (
         <div className="login-screen">
+            <Landing className="landing" />
             <div className="login-container">
                 <input className="login"
                     placeholder="Enter Username"
@@ -52,9 +54,10 @@ function Auth(props) {
                 <div className="button-container">
                     <button className="login-button" onClick={loginUser}>Login</button>
                     <button className="register-button" onClick={registerUser}>Register</button>
+
                 </div>
             </div>
-            <Landing />
+
         </div>
     )
 }

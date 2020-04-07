@@ -7,15 +7,35 @@ body {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+}
+.login-screen .blorpz-title {
+  font-size: 70px;
+  text-align: center;
+  color: black;
+  -webkit-text-fill-color: white;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.login-screen .landing {
+  text-align: center;
+}
+.login-screen .top-img {
+  display: flex;
+  justify-content: space-around;
 }
 .login-screen .login-container {
   display: flex;
+  opacity: 0.8;
   flex-direction: column;
-  width: 100%;
   align-items: center;
   float: right;
   justify-content: center;
-  height: 100%;
+  clear: left;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 .login-screen .login-container input {
   background-color: white;
@@ -25,7 +45,7 @@ body {
   font-size: 20px;
   width: 350px;
   padding: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .login-screen .login-container input:focus {
   outline: none;
@@ -39,9 +59,10 @@ body {
   text-transform: uppercase;
   border: none;
   letter-spacing: 1px;
-  margin-right: 8px;
+  margin-right: 28px;
   transition: 0.15s ease;
   cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.8);
 }
 .login-screen .login-container .login-button:hover {
   background-color: #968B8B;
