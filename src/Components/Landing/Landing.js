@@ -30,12 +30,8 @@ function Landing(props) {
 
     return (
 
-        <div>
-    <div className="top-img">
-
-        <div className='landing-body'>
-
-
+        <div className="landing-container">
+         <div className="top-img">
             <img
                 ref={event => blorpOne = event}
                 src="https://vignette.wikia.nocookie.net/tamagotchi/images/1/11/Mametchi_anime_large.png/revision/latest?cb=20130920042009"
@@ -50,14 +46,13 @@ function Landing(props) {
             />
             </div>
             <div
-                
                 ref={event => blorpzTitle = event}
             >
                 <p className="blorpz-title">
                     BLORPZ
                 </p>
             </div>
-<div className="top-img">
+            <div className="top-img">
             <img
                 ref={event => blorpTwo = event}
                 src="https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427"
@@ -71,7 +66,8 @@ function Landing(props) {
                 width="250"
                 height="250"
             /></div>
-        </div>
+        
+      </div>
     );
 }
 
