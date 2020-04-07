@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import userReducer from '../../ducks/userReducer'
 
-function Create(){
-
+function Create(props){
+    const user_id = props.userReducer.user.user_id
     const [name, setName] = useState('')
     const [hunger, setHunger] = useState(Math.floor(Math.random() * 10))
     const [awake, setAwake] = useState(true)
@@ -11,8 +13,9 @@ function Create(){
     const [age, setAge] = useState(0)
     const [alive, setAlive] = useState(true)
 
-    const createBlorp = (user_id, name, hunger, awake, happy, poo, age, alive) => {
-        axios.post(`/api/create/${user_id}`, (name, hunger, awake, happy, poo, age, alive))
+    const createBlorp = (name, hunger, awake, happy, poo, age, alive) => {
+        console.log(user_id, name, hunger, awake, happy, poo, age, alive)
+        axios.post(`/api/blorp/${user_id}`, (name, hunger, awake, happy, poo, age, alive))
     }
 
     return (
@@ -22,7 +25,6 @@ function Create(){
                 onSubmit={(e) => {
                     e.preventDefault();
                     createBlorp(name, hunger, awake, happy, poo, age, alive)
-                    setName('')
                 }}
             >
                 <input
@@ -30,6 +32,7 @@ function Create(){
                     id="name"
                     value={name}
                     onChange={(e) => {
+                        console.log(name)
                     setName(e.target.value)
                 }}
                 />
@@ -39,4 +42,11 @@ function Create(){
     )
 }
 
-export default Create
+const mapStateToProps = reduxState => {
+    return {
+        userReducer: reduxState.userReducer
+    }
+
+}
+
+export default connect(mapStateToProps)(Create)
