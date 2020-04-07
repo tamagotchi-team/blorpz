@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { logout, register, login } from "../../ducks/userReducer";
 import {connect} from 'react-redux'
+=======
+import { logout, register, login } from "../../ducks/userReducer"
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+>>>>>>> master
 import Landing from '../Landing/Landing'
 
 function Auth(props) {
@@ -34,6 +40,8 @@ function Auth(props) {
         setUsername('')
         setPassword('')
     }
+    if (props.userReducer.user.username) return <Redirect to="/create" />
+
     return (
         <div className="login-screen">
             <div className="login-container">

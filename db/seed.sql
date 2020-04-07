@@ -7,12 +7,12 @@ CREATE TABLE users (
 CREATE TABLE blorpz (
     blorp_id SERIAL PRIMARY KEY,
     blorp_name VARCHAR(20),
+    picture VARCHAR(250),
     hunger INT,
     awake BOOLEAN,
     happy INT,
     poo INT,
     age INT,
     alive BOOLEAN,
-    picture VARCHAR(250),
     user_id INT REFERENCES users(user_id)
-);
+)

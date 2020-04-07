@@ -29,7 +29,7 @@ function Landing(props) {
 
 
     return (
-        <div>
+        <div className='landing-body'>
 
             <img
                 ref={event => blorpOne = event}
