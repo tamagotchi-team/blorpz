@@ -15,6 +15,7 @@
 		"electron-is-dev": "^1.2.0",
 		"express": "^4.17.1",
 		"express-session": "^1.17.0",
+		"greensock": "^1.20.2",
 		"gsap": "^3.2.6",
 		"massive": "^6.2.0",
 		"react": "^16.13.1",
@@ -23,7 +24,8 @@
 		"react-scripts": "3.4.1",
 		"redux": "^4.0.5",
 		"redux-devtools-extension": "^2.13.8",
-		"redux-promise-middleware": "^6.1.2"
+		"redux-promise-middleware": "^6.1.2",
+		"sass": "^1.26.3"
 	},
 	"scripts": {
 		"start": "react-scripts start",
