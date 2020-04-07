@@ -6,6 +6,7 @@ const session = require('express-session')
 
 const checkUser = require('./middleware/checkUser')
 const authCtrl = require('./controllers/authController')
+const blorpCtrl = require('./controllers/blorpController')
 
 
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
@@ -38,3 +39,8 @@ app.post('/api/register', authCtrl.register)
 app.post('/api/login', authCtrl.login)
 app.post('/api/logout', authCtrl.logout)
 app.get('/api/check', checkUser)
+
+// Blorp Endpoints 
+
+// id is user id
+app.post('/api/blorp/:user_id', blorpCtrl.createBlorp)

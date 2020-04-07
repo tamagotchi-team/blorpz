@@ -29,8 +29,13 @@ function Landing(props) {
 
 
     return (
+
         <div>
     <div className="top-img">
+
+        <div className='landing-body'>
+
+
             <img
                 ref={event => blorpOne = event}
                 src="https://vignette.wikia.nocookie.net/tamagotchi/images/1/11/Mametchi_anime_large.png/revision/latest?cb=20130920042009"
