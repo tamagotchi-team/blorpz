@@ -72,6 +72,7 @@ function Landing(props) {
                 height="250"
             /></div>
         </div>
+        </div>
     );
 }
 
