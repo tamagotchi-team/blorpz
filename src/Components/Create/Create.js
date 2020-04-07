@@ -20,7 +20,6 @@ function Create() {
         setPoo(1)
         setAge(0)
         setAlive(true)
-
     }
 
     return (
