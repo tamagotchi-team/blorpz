@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { logout, register, login } from "../../ducks/userReducer";
 import {connect} from 'react-redux'
+import Landing from '../Landing/Landing'
 
 function Auth(props) {
 
@@ -48,6 +49,7 @@ function Auth(props) {
                 <button className="login-button" onClick={loginUser}>Login</button>
                 <button className="register-button" onClick={registerUser}>Register</button>
             </div>
+            <Landing />
         </div>
     )
 }
