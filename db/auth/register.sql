@@ -1,6 +1,6 @@
 INSERT INTO users (
     username,
-    hash
+    password
 )
 
 VALUES (
@@ -8,4 +8,4 @@ VALUES (
     ${hash}
 )
 
-RETURNING username;
+RETURNING user_id, username;

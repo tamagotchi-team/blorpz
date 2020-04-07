@@ -10,7 +10,7 @@ function Auth(props) {
 
 
     const handleUsername = (event) => {
-        
+
         setUsername(event.target.value);
     };
 
@@ -35,19 +35,21 @@ function Auth(props) {
         setPassword('')
     }
     return (
-        <div>
-            <input className="login"
-                placeholder="Enter Username"
-                onChange={handleUsername}
-            />
-            <input className='login'
-                placeholder='Enter Password'
-                type="password"
-                onChange={handlePassword}
-            />
-            <div className="button-container">
-                <button className="login-button" onClick={loginUser}>Login</button>
-                <button className="register-button" onClick={registerUser}>Register</button>
+        <div className="login-screen">
+            <div className="login-container">
+                <input className="login"
+                    placeholder="Enter Username"
+                    onChange={handleUsername}
+                />
+                <input className='login'
+                    placeholder='Enter Password'
+                    type="password"
+                    onChange={handlePassword}
+                />
+                <div className="button-container">
+                    <button className="login-button" onClick={loginUser}>Login</button>
+                    <button className="register-button" onClick={registerUser}>Register</button>
+                </div>
             </div>
             <Landing />
         </div>

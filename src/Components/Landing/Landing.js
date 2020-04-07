@@ -25,7 +25,6 @@ function Landing(props) {
             .from(blorpFour, 1, { x: 200 })
             .from(blorpFour, 1, { rotation: 180, ease: "elastic.out(1, 0.3)", y: -300 })
 
-
     }, [])
 
 

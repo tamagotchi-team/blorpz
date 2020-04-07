@@ -1,7 +1,7 @@
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(20),
-    hash VARCHAR(255)
+    password VARCHAR(255)
 );
 
 CREATE TABLE blorpz (
