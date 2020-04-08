@@ -23,7 +23,7 @@ function Landing(props) {
             .from(blorpThree, .5, { x: -1000 })
             .from(blorpThree, 1, { rotation: 0, ease: "bounce(.5, 0.3)", y: 300 })
             .from(blorpFour, 1, { x: 200 })
-            .from(blorpFour, 1, { rotation: 180, ease: "elastic.out(1, 0.3)", y: -300 }
+            .from(blorpFour, 1, { rotation: 180, ease: "elastic.out(1, 0.3)", y: -300 })
     }, [])
 
 
