@@ -10,7 +10,6 @@ function Auth(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-
     const handleUsername = (event) => {
 
         setUsername(event.target.value);
