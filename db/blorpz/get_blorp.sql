@@ -1,2 +1,2 @@
 SELECT * FROM blorpz
-WHERE blorp_id = ${blorp_id};
+WHERE alive = true and user_id = $1 
