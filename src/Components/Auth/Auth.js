@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { logout, register, login } from "../../ducks/userReducer"
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -9,6 +9,16 @@ function Auth(props) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        if (props.userReducer.user.user_id) {
+          if (props.userReducer.user.username && !props.userReducer.blorpz[0]) {
+            return props.history.push("/create");
+          } else {
+            return props.history.push("/playground");
+          }
+        }
+      }, [props.userReducer.user.user_id]);
 
     const handleUsername = (event) => {
 
@@ -26,6 +36,7 @@ function Auth(props) {
         props.register(username, password);
         setUsername('')
         setPassword('')
+        props.history.push('/create')
     };
 
     const loginUser = event => {
@@ -35,7 +46,6 @@ function Auth(props) {
         setUsername('')
         setPassword('')
     }
-    if (props.userReducer.user.username) return <Redirect to="/create" />
 
     return (
         <div className="login-screen">
@@ -62,8 +72,10 @@ function Auth(props) {
 }
 
 const mapStateToProps = reduxState => {
+    // console.log(reduxState)
     return {
-        userReducer: reduxState.userReducer
+        userReducer: reduxState.userReducer,
+
     }
 
 }

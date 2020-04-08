@@ -4,7 +4,8 @@ const initialState = {
     user: {},
     loading: false,
     error: false,
-    errorMessage: ''
+    errorMessage: '',
+    blorpz: []
 };
 
 const CHECK_USER = "CHECK_USER"
@@ -55,7 +56,7 @@ export default function userReducer(state = initialState, action) {
         case LOGIN + '_PENDING':
             return { ...state, loading: true, error: false }
         case LOGIN + '_FULFILLED':
-            return { ...state, loading: false, user: action.payload.data }
+            return { ...state, loading: false, user: action.payload.data.user, blorpz: action.payload.data.blorpz }
         case LOGIN + '_REJECTED':
             return { ...state, loading: false, error: true }
         case LOGOUT + '_PENDING':

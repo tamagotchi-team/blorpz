@@ -8,22 +8,28 @@ function Playground(props) {
     const [blorpz, setBlorp] = useState([])
 
     useEffect(() => {
-        let id = props.userReducer.user.user_id
-        console.log(id)
-        axios.get(`/api/blorp/${id}`)
+
+        console.log(props.userReducer.user.user_id)
+        axios.get(`/api/blorp/${props.userReducer.user.user_id}`)
             .then(res => {
                 setBlorp([...blorpz, ...res.data])
             })
-    }, [])
+    }, [props.userReducer.user.user_id])
 
 
     return (
         <div>
             <div>
                 {blorpz.map((blorp, index) => {
-                    return <img
-                        src={blorp.picture}
-                    />
+                    return <div
+                        key={index}
+                    >
+
+                        <img
+                            src={blorp.picture}
+                        />
+
+                    </div>
                 })}
             </div>
         </div>

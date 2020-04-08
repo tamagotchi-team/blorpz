@@ -34,11 +34,11 @@ module.exports = {
         if (!user) {
             return res.status(400).send('Username not found')
         }
-
+        let blorpz = await db.blorpz.get_blorp([user.user_id])
         const authenticated = bcrypt.compareSync(password, user.password)
         if (authenticated) {
             delete user.password
-            session.user = user
+            session.user = { user, blorpz }
             // console.log(session.user)
             res.status(202).send(session.user)
         } else {
