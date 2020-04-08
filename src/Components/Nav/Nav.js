@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../ducks/userReducer'
-import { withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 function Nav(props) {
-    console.log(props)
+    // console.log(props)
     const [dropdown, setDropdown] = useState(false)
 
     useEffect(() => {
@@ -57,5 +57,5 @@ const mapStateToProps = reduxState => {
 };
 
 
-export default connect(mapStateToProps, {logout})(withRouter(Nav))
+export default connect(mapStateToProps, { logout })(withRouter(Nav))
 
