@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import userReducer from '../../ducks/userReducer'
 
 function Create(props) {
@@ -29,6 +30,8 @@ function Create(props) {
         setAge(0)
         setAlive(true)
         setPicture(blorpPicture[Math.floor(Math.random() * 9)])
+        props.history.push('/playground')
+
     }
 
     return (
@@ -39,6 +42,7 @@ function Create(props) {
                     e.preventDefault();
                     createBlorp(name, picture, hunger, awake, happy, poo, age, alive)
                 }}
+
             >
                 <input
                     placeholder="Enter Blorp Name Here"

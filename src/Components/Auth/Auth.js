@@ -27,6 +27,7 @@ function Auth(props) {
         props.register(username, password);
         setUsername('')
         setPassword('')
+        props.history.push('/create')
     };
 
     const loginUser = event => {
@@ -35,8 +36,18 @@ function Auth(props) {
         props.login(username, password)
         setUsername('')
         setPassword('')
+        checkBlorp()
     }
-    if (props.userReducer.user.username) return <Redirect to="/create" />
+
+    const checkBlorp = () => {
+        if (props.userReducer.user.user_id) {
+            if (props.userReducer.user.username && !props.userReducer.blorpz[0]) {
+                return props.history.push('/create')
+            } else {
+                return props.history.push('/playground')
+            }
+        }
+    }
 
     return (
         <div className="login-screen">
@@ -63,8 +74,10 @@ function Auth(props) {
 }
 
 const mapStateToProps = reduxState => {
+    // console.log(reduxState)
     return {
-        userReducer: reduxState.userReducer
+        userReducer: reduxState.userReducer,
+
     }
 
 }
