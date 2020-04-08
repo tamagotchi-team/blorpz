@@ -62,7 +62,7 @@
 	},
 	"jest": {
 		"watchPathIgnorePatterns": [
-      		"<rootDir>/src/__tests__/__data__"
-    	]
-  	}
+			"<rootDir>/src/__tests__/__data__"
+		]
+	}
 }

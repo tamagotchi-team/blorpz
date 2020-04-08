@@ -30,21 +30,22 @@ function Landing(props) {
     return (
 
         <div className="landing-container">
-         <div className="top-img">
-            <img
-                ref={event => blorpOne = event}
-                src="https://vignette.wikia.nocookie.net/tamagotchi/images/1/11/Mametchi_anime_large.png/revision/latest?cb=20130920042009"
-                width="250"
-                height="250"
-            />
-            <img
-                ref={event => blorpFour = event}
-                src="https://vignette.wikia.nocookie.net/tamagotchi/images/2/2b/Kuchipatchi_anime.PNG/revision/latest/scale-to-width-down/350?cb=20110918052545"
-                width="250"
-                height="250"
-            />
+            <div className="top-img">
+                <img
+                    ref={event => blorpOne = event}
+                    src="https://vignette.wikia.nocookie.net/tamagotchi/images/1/11/Mametchi_anime_large.png/revision/latest?cb=20130920042009"
+                    width="250"
+                    height="250"
+                />
+                <img
+                    ref={event => blorpFour = event}
+                    src="https://vignette.wikia.nocookie.net/tamagotchi/images/2/2b/Kuchipatchi_anime.PNG/revision/latest/scale-to-width-down/350?cb=20110918052545"
+                    width="250"
+                    height="250"
+                />
             </div>
             <div
+
                 ref={event => blorpzTitle = event}
             >
                 <p className="blorpz-title">
@@ -52,19 +53,22 @@ function Landing(props) {
                 </p>
             </div>
             <div className="top-img">
-            <img
-                ref={event => blorpTwo = event}
-                src="https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427"
-                width="250"
-                height="250"
-            />
-            <img
-                ref={event => blorpThree = event}
-                src='https://vignette.wikia.nocookie.net/tamagotchi/images/3/33/Anime_spacytchi.PNG/revision/latest/scale-to-width-down/350?cb=20120502054708'
-                width="250"
-                height="250"
-            /></div>
-      </div>
+
+
+                <img
+                    ref={event => blorpTwo = event}
+                    src="https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427"
+                    width="250"
+                    height="250"
+                />
+                <img
+                    ref={event => blorpThree = event}
+                    src='https://vignette.wikia.nocookie.net/tamagotchi/images/3/33/Anime_spacytchi.PNG/revision/latest/scale-to-width-down/350?cb=20120502054708'
+                    width="250"
+                    height="250"
+                /></div>
+        </div>
+
     );
 }
 
