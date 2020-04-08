@@ -44,3 +44,4 @@ app.get('/api/check', checkUser)
 
 // id is user id
 app.post('/api/blorp/:user_id', blorpCtrl.createBlorp)
+app.get('/api/blorp/:user_id', blorpCtrl.getBlorp)
