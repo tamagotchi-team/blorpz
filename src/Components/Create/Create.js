@@ -14,7 +14,7 @@ function Create(props) {
     const [happy, setHappy] = useState(Math.floor(Math.random() * 10))
     const [poo, setPoo] = useState(1)
     const [age, setAge] = useState(0)
-    const [alive, setAlive] = useState(false)
+    const [alive, setAlive] = useState(true)
     const [picture, setPicture] = useState(blorpPicture[Math.floor(Math.random() * 9)])
 
 
