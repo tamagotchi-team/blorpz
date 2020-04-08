@@ -41,6 +41,7 @@ app.post('/api/logout', authCtrl.logout)
 app.get('/api/check', checkUser)
 
 // Blorp Endpoints 
+app.put('/api/blorp/:user_id', blorpCtrl.feedBlorp)
 
 // id is user id
 app.post('/api/blorp/:user_id', blorpCtrl.createBlorp)
