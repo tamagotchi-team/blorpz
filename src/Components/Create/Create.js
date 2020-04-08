@@ -32,8 +32,9 @@ function Create(props) {
     }
 
     return (
-        < div >
-            <p>Name your new Blorp!</p>
+        < div className="create-screen">
+            <div className="create-container">
+            <p className="name-title">Name your New Blorp</p>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -42,15 +43,16 @@ function Create(props) {
             >
                 <input
                     placeholder="Enter Blorp Name Here"
-                    id="name"
+                    className="name-input"
                     value={name}
                     onChange={(e) => {
                         console.log(name)
                         setName(e.target.value)
                     }}
                 />
-                <button>Create Blorp!</button>
+                <button className="create-button">+</button>
             </form>
+            </div>
         </div >
     )
 }
