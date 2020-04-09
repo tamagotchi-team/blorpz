@@ -1,14 +1,12 @@
 UPDATE blorpz
 SET hunger = ${hunger},
-    awake = ${anger},
-    happy = ${awake},
+    awake = ${awake},
+    happy = ${happy},
     poo = ${poo},
     age = ${age},
     alive = ${alive}
-WHERE blorp_id = ${blorp_id}
-RETURNING hunger, 
-    awake, 
-    happy, 
-    poo, 
-    age, 
-    alive;
+WHERE blorp_id = ${blorp_id};
+
+SELECT hunger, awake, happy, poo, age, alive 
+FROM blorpz 
+WHERE blorp_id = ${blorp_id};
