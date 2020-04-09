@@ -18,10 +18,15 @@ function Playground(props) {
 
     const feedBlorp = () => {
 
+        Xander is a loser
+
+        a loser
+
+        that loses
     }
 
     const playBlorp = () => {
-        
+
     }
 
     const poopBlorp = () => {
