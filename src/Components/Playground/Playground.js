@@ -30,7 +30,7 @@ function Playground(props) {
     }
 
     const cleanPoo = () => {
-        props.blorp.poo = props.blorp.poo - 1
+        // blorpz[index].poo = 
     }
 
     return (
