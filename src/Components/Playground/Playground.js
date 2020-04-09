@@ -6,6 +6,7 @@ import axios from 'axios'
 function Playground(props) {
 
     const [blorpz, setBlorp] = useState([])
+    const [poo, setPoo] = useState(true)
 
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`)
@@ -25,10 +26,12 @@ function Playground(props) {
 
     }
 
-    const poopBlorp = () => {
-
+    const cleanPoo = () => {
+        setPoo(false)
+        console.log('hit poo', poo)
     }
 
+    
     console.log(props.blorpz)
     return (
 
@@ -39,7 +42,7 @@ function Playground(props) {
                     console.log(blorpz)
                     return <div
                         key={index}
-                    >
+                        >
                         <button
                             onClick={() => {
                                 feedBlorp(index)
@@ -49,7 +52,17 @@ function Playground(props) {
                             className="blorp-img"
                             src={blorp.picture}
                         />
+
                           <h1 className="blorp-name">{blorp.blorp_name}</h1> 
+
+                        <div id="poo">
+                            { poo === false 
+                            ? null
+                            : <img src={'https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412'} 
+                                alt="poo" 
+                                onClick={cleanPoo} /> }
+                        </div>
+
                     </div>
                 })} 
                
