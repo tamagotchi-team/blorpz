@@ -11,6 +11,7 @@ function Auth(props) {
     const [password, setPassword] = useState("");
 
 
+
     useEffect(() => {
         if (props.userReducer.user.user_id) {
             if (props.userReducer.user.username && !props.userReducer.blorpz[0]) {
@@ -47,7 +48,6 @@ function Auth(props) {
         setUsername('')
         setPassword('')
     }
-
 
     return (
         <div className="login-screen">
