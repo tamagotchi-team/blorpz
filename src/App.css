@@ -206,6 +206,24 @@
   font-weight: bolder;
 }
 
+.playground-screen {
+  background-image: url("https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.graveyard-screen {
+  background-image: url("https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
