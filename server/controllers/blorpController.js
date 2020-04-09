@@ -18,12 +18,11 @@ module.exports = {
             })
     },
 
-
     getBlorp: async (req, res) => {
         const db = req.app.get('db').blorpz
         const { user_id } = req.params
 
-        const blorp = await db.get_blorp([user_id])
+        db.get_blorp([user_id])
             .then((blorp) => {
                 res.status(200).send(blorp)
             })
