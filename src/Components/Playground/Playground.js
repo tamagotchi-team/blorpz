@@ -16,37 +16,33 @@ function Playground(props) {
             })
     }, [props.userReducer.user.user_id])
 
-    const feedBlorp = () => {
-
-        Xander is a loser
-
-        a loser
-
-        that loses
+    const feedBlorp = (index) => {
+        console.log(blorpz[index].hunger)
+        blorpz[index].hunger = 10
+        console.log(blorpz[index].hunger)
     }
 
     const playBlorp = () => {
-        // I am
-        // putting
-        // some
-        // stuff
-        // here
+ 
     }
 
     const poopBlorp = () => {
-        //I'm putting poo in here!
-        //poo
-        //another poo
+
     }
 
     return (
         <div>
             <div>
                 {blorpz.map((blorp, index) => {
+                    console.log(blorpz)
                     return <div
                         key={index}
                     >
-
+                        <button
+                            onClick={() => {
+                                feedBlorp(index)
+                            }}
+                        >AButton</button>
                         <img
                             src={blorp.picture}
                         />
