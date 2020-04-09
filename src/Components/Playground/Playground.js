@@ -15,36 +15,42 @@ function Playground(props) {
                 setBlorp([...blorpz, ...res.data])
             })
     }, [props.userReducer.user.user_id])
-
-    const feedBlorp = () => {
-
-        // Xander is a loser
-
-        // a loser
-
-        // that loses
+        
+    const feedBlorp = (index) => {
+        console.log(blorpz[index].hunger)
+        blorpz[index].hunger = 10
+        console.log(blorpz[index].hunger)
     }
 
     const playBlorp = () => {
-        
+ 
     }
 
-    const cleanPoo = () => {
-        // blorpz[index].poo = 
+    const cleanPoo = (index) => {
+        console.log(blorpz[index].poo)
+        blorpz[index].poo = !blorpz[index].poo
     }
 
     return (
         <div>
             <div>
                 {blorpz.map((blorp, index) => {
+                    console.log(blorpz)
                     return <div
                         key={index}
-                    >
-
+                        >
+                        <button
+                            onClick={() => {
+                                feedBlorp(index)
+                            }}
+                        >AButton</button>
                         <img
                             src={blorp.picture}
                         />
-
+{                        <button
+                            onClick={cleanPoo}>
+                            Clean Up!
+                        </button>}
                     </div>
                 })}
             </div>
