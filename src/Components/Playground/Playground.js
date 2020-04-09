@@ -6,6 +6,7 @@ import axios from 'axios'
 function Playground(props) {
 
     const [blorpz, setBlorp] = useState([])
+    const [poo, setPoo] = useState(true)
 
     useEffect(() => {
 
@@ -26,11 +27,12 @@ function Playground(props) {
  
     }
 
-    const cleanPoo = (index) => {
-        console.log(blorpz[index].poo)
-        blorpz[index].poo = !blorpz[index].poo
+    const cleanPoo = () => {
+        setPoo(false)
+        console.log('hit poo', poo)
     }
 
+    
     return (
         <div className="playground-screen">
             <div>
@@ -47,10 +49,14 @@ function Playground(props) {
                         <img
                             src={blorp.picture}
                         />
-{                        <button
-                            onClick={cleanPoo}>
-                            Clean Up!
-                        </button>}
+                        <div id="poo">
+                            { poo === false 
+                            ? null
+                            : <img src={'https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412'} 
+                                alt="poo" 
+                                onClick={cleanPoo} /> }
+                        </div>
+
                     </div>
                 })}
             </div>
