@@ -16,6 +16,24 @@ function Playground(props) {
             })
     }, [props.userReducer.user.user_id])
 
+    const feedBlorp = () => {
+
+        Xander is a loser
+
+        a loser
+
+        that loses
+    }
+
+    const playBlorp = () => {
+
+    }
+
+    const poopBlorp = () => {
+        //I'm putting poo in here!
+        //poo
+        //another poo
+    }
 
     return (
         <div>
