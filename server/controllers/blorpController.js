@@ -7,8 +7,6 @@ module.exports = {
         const { name, picture, hunger, awake, happy, poo, age, alive } = req.body
         const { user_id } = req.params
 
-        // console.log("hit create", req.body)
-
         db.create_blorp([user_id, name, picture, hunger, awake, happy, poo, age, alive])
             .then(() => {
                 res.sendStatus(201)
