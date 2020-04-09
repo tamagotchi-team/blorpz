@@ -16,6 +16,17 @@ function Playground(props) {
             })
     }, [props.userReducer.user.user_id])
 
+    const feedBlorp = () => {
+
+    }
+
+    const playBlorp = () => {
+        
+    }
+
+    const poopBlorp = () => {
+
+    }
 
     return (
         <div>
