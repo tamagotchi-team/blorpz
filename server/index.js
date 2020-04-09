@@ -7,6 +7,7 @@ const session = require('express-session')
 const checkUser = require('./middleware/checkUser')
 const authCtrl = require('./controllers/authController')
 const blorpCtrl = require('./controllers/blorpController')
+const deadBlorpCtrl = require('./controllers/deadBlorpzCtrl')
 
 
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
@@ -46,3 +47,6 @@ app.put('/api/blorp/:user_id', blorpCtrl.updateBlorp)
 // id is user id
 app.post('/api/blorp/:user_id', blorpCtrl.createBlorp)
 app.get('/api/blorp/:user_id', blorpCtrl.getBlorp)
+
+//Graveyard Endpoints
+app.get('/api/deadBlorpz/:user_id', deadBlorpCtrl.getDead)

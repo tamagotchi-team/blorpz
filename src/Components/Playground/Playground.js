@@ -32,7 +32,7 @@ function Playground(props) {
 
     return (
         <div className="playground-screen">
-            <div>
+            <div className="playground-container">
                 {blorpz.map((blorp, index) => {
                     console.log(blorpz)
                     return <div
@@ -44,11 +44,13 @@ function Playground(props) {
                             }}
                         >AButton</button>
                         <img
+                            className="blorp-img"
                             src={blorp.picture}
                         />
-
+                          <h1 className="blorp-name">{blorp.blorp_name}</h1> 
                     </div>
-                })}
+                })} 
+               
             </div>
         </div>
     )
