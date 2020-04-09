@@ -6,3 +6,18 @@
 	font-size: 2.5rem;
 	font-weight: 600;
 }
+
+.animation-bumper {
+	width: 100%;
+	height: 120px;
+}
+
+.play-title {
+	font-size: 43px;
+	text-align: center;
+	color: black;
+	display: block;
+	-webkit-text-fill-color: #f0f7ee;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
