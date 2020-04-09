@@ -29,3 +29,4 @@ function createWindow() {
         e.preventDefault()
     }), mainWindow.webContents.openDevTools()
 }
+

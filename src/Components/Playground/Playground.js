@@ -14,8 +14,11 @@ function Playground(props) {
             })
     }, [props.userReducer.user.user_id])
 
-    const feedBlorp = () => {
 
+    const feedBlorp = (index) => {
+        console.log(blorpz[index].hunger)
+        blorpz[index].hunger = 10
+        console.log(blorpz[index].hunger)
     }
 
     const playBlorp = () => {
@@ -28,14 +31,21 @@ function Playground(props) {
 
     console.log(props.blorpz)
     return (
-        < div >
+
+
+        <div className="playground-screen">
+
             <div>
                 {blorpz.map((blorp, index) => {
                     console.log(blorpz)
                     return <div
                         key={index}
                     >
-
+                        <button
+                            onClick={() => {
+                                feedBlorp(index)
+                            }}
+                        >AButton</button>
                         <img
                             src={blorp.picture}
                         />
