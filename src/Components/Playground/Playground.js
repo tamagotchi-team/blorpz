@@ -5,7 +5,10 @@ import axios from 'axios'
 
 function Playground(props) {
 
+    const playActions = ["You play hide and seek with your blorp.", "You take your blorp on a walk.", "You play pattycake with your Blorp.", "You toss a ball around with your Blorp.", "You tickle your Blorp.", "You play tag with your Blorp.", "Your blorp does not want to play right now."]
     const [blorpz, setBlorp] = useState([])
+    const [play, setPlay] = useState(Math.floor(Math.random() * playActions.length -1))
+    const [playText, setPlayText] = useState(false)
     const [poo, setPoo] = useState(true)
 
     useEffect(() => {
@@ -22,8 +25,24 @@ function Playground(props) {
         console.log(blorpz[index].hunger)
     }
 
-    const playBlorp = () => {
-
+    const playBlorp = (index) => {
+        console.log(blorpz[index].happy)
+        if(blorpz[index].happy >= 10){
+            setPlay(playActions.length - 1)
+            console.log(blorpz[index].happy)
+            setPlayText(true)
+            setTimeout(() => {
+                setPlayText(false)
+            }, 1000, 60, 5)
+        } else {
+            blorpz[index].happy += 2
+            console.log(blorpz[index].happy)
+            setPlay(Math.floor(Math.random() * 2))
+            setPlayText(true)
+            setTimeout(() => {
+                setPlayText(false)
+            }, 1000, 60, 60, 5)
+        }
     }
 
     const cleanPoo = () => {
@@ -48,10 +67,18 @@ function Playground(props) {
                                 feedBlorp(index)
                             }}
                         >AButton</button>
+                        <button
+                            onClick={() => {
+                            playBlorp(index)
+                            }}
+                        >
+                            Play with Blorp
+                        </button>
                         <img
                             className="blorp-img"
                             src={blorp.picture}
                         />
+                        {!playText ? null : <div>{playActions[play]}</div>}
 
                           <h1 className="blorp-name">{blorp.blorp_name}</h1> 
 
