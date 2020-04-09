@@ -18,21 +18,19 @@ function Playground(props) {
 
     const feedBlorp = () => {
 
-        Xander is a loser
+        // Xander is a loser
 
-        a loser
+        // a loser
 
-        that loses
+        // that loses
     }
 
     const playBlorp = () => {
-
+        
     }
 
-    const poopBlorp = () => {
-        //I'm putting poo in here!
-        //poo
-        //another poo
+    const cleanPoo = () => {
+        props.blorp.poo = props.blorp.poo - 1
     }
 
     return (
