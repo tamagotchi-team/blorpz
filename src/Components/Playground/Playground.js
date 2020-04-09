@@ -32,7 +32,7 @@ function Playground(props) {
     }
 
     return (
-        <div>
+        <div className="playground-screen">
             <div>
                 {blorpz.map((blorp, index) => {
                     console.log(blorpz)
