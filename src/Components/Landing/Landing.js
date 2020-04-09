@@ -11,25 +11,40 @@ function Landing(props) {
     let blorpTwo = null;
     let blorpThree = null;
     let blorpFour = null;
+    let playTitle = null;
+
 
     useEffect(() => {
         tl
-            .to(blorpzTitle, .05, { x: 500 })
-            .from(blorpzTitle, 2, { rotation: 180, ease: "elastic.out(1, 0.3)", x: -1000 })
-            .from(blorpOne, 1, { y: 0 })
-            .from(blorpOne, 2, { rotation: 180, ease: "elastic.out(1, 0.3)", x: 1000 })
-            .from(blorpTwo, 0.5, { x: 1000 })
-            .from(blorpTwo, 2, { rotation: 180, ease: "elastic.out(1, 0.3)", y: 300 })
-            .from(blorpThree, .5, { x: -1000 })
-            .from(blorpThree, 1, { rotation: 0, ease: "bounce(.5, 0.3)", y: 300 })
-            .from(blorpFour, 1, { x: 200 })
-            .from(blorpFour, 1, { rotation: 180, ease: "elastic.out(1, 0.3)", y: -300 })
+            .to(blorpzTitle, .75, { x: 500 })
+            .from(blorpzTitle, .75, { rotation: 180, ease: "elastic.out(1, 0.25)", x: -1000 })
+            .from(blorpOne, .25, { y: 0 })
+            .from(blorpOne, .75, { rotation: 180, ease: "elastic.out(1, 0.25)", x: 1000 })
+            .from(blorpTwo, 0.25, { x: 1000 })
+            .from(blorpTwo, .75, { rotation: 180, ease: "elastic.out(1, 0.25)", y: 300 })
+            .from(blorpThree, .25, { x: -1000 })
+            .from(blorpThree, .75, { rotation: 0, ease: "elastic.out(1, 0.25)", y: 300 })
+            .from(blorpFour, .25, { x: 500 })
+            .from(blorpFour, .75, { rotation: 180, ease: "elastic.out(1, 0.25)", y: -300 })
+            .from(playTitle, .75, { ease: "bounce(.5, 0.25)", x: -800 })
+
+
     }, [])
 
 
     return (
 
         <div className="landing-container">
+            <div className="animation-bumper">
+            </div>
+            <div
+                ref={event => playTitle = event}
+            >
+
+                <p className="play-title ">
+                    Raise Your Blorp Today!
+                </p>
+            </div>
             <div className="top-img">
                 <img
                     ref={event => blorpOne = event}
@@ -52,6 +67,7 @@ function Landing(props) {
                     BLORPZ
                 </p>
             </div>
+
             <div className="top-img">
 
 
