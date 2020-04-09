@@ -8,13 +8,12 @@ function Playground(props) {
     const [blorpz, setBlorp] = useState([])
 
     useEffect(() => {
-
-        console.log(props.userReducer.user.user_id)
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`)
             .then(res => {
                 setBlorp([...blorpz, ...res.data])
             })
     }, [props.userReducer.user.user_id])
+
 
     const feedBlorp = (index) => {
         console.log(blorpz[index].hunger)
@@ -23,15 +22,19 @@ function Playground(props) {
     }
 
     const playBlorp = () => {
- 
+
     }
 
     const poopBlorp = () => {
 
     }
 
+    console.log(props.blorpz)
     return (
+
+
         <div className="playground-screen">
+
             <div>
                 {blorpz.map((blorp, index) => {
                     console.log(blorpz)
@@ -46,11 +49,11 @@ function Playground(props) {
                         <img
                             src={blorp.picture}
                         />
-
                     </div>
                 })}
+
             </div>
-        </div>
+        </div >
     )
 }
 
