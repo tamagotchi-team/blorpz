@@ -108,7 +108,7 @@
   display: block;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: #white;
 }
 .create-screen .name-input {
   font-family: "Indie Flower", cursive;
@@ -142,14 +142,16 @@
   margin-top: -2px;
   padding-left: -1px;
 }
-.create-screen .nav-container {
+
+.nav-container {
   font-family: "Indie Flower", cursive;
   background-color: #00000000;
   position: fixed;
   height: 600px;
   z-index: 20;
 }
-.create-screen .username-title {
+
+.username-title {
   background-color: yellow;
   border-radius: 100px;
   padding: 10px 16px;
@@ -160,14 +162,17 @@
   -webkit-text-stroke: 1px black;
   -webkit-text-fill-color: white;
 }
-.create-screen .menu-button {
+
+.menu-button {
   margin-left: 80px;
   margin-bottom: 30px;
 }
-.create-screen .nav-links {
+
+.nav-links {
   flex-direction: column;
 }
-.create-screen .nav-button {
+
+.nav-button {
   font-family: "Indie Flower", cursive;
   background-color: #feff10;
   border-radius: 100px;
@@ -183,15 +188,18 @@
   border: 1px solid rgba(0, 0, 0, 0.8);
   display: inline-block;
 }
-.create-screen .nav-button:hover {
+
+.nav-button:hover {
   background-color: #FEFF6D;
 }
-.create-screen .link {
+
+.link {
   font-family: "Indie Flower", cursive;
   flex-direction: column;
   display: inline-block;
 }
-.create-screen .link-div {
+
+.link-div {
   font-family: "Indie Flower", cursive;
   margin-bottom: 30px;
   margin-left: 48px;
