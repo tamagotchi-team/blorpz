@@ -6,7 +6,7 @@ import axios from 'axios'
 function Playground(props) {
 
     const [blorpz, setBlorp] = useState([])
-    const [poo, setPoo] = useState(true)
+    const [poo, setPoo] = useState(false)
 
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`)
@@ -48,7 +48,7 @@ function Playground(props) {
                             onClick={() => {
                                 feedBlorp(index)
                             }}
-                        >AButton</button>
+                        >A Button</button>
                         <img
                             src={blorp.picture}
                         />
