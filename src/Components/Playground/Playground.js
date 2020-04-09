@@ -26,15 +26,11 @@ function Playground(props) {
     }
 
     const playBlorp = () => {
-<<<<<<< HEAD
         // I am
         // putting
         // some
         // stuff
         // here
-=======
-
->>>>>>> master
     }
 
     const poopBlorp = () => {
