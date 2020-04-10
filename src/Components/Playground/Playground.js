@@ -32,25 +32,24 @@ function Playground(props) {
         "You play tag with your Blorp.",
         "Your blorp does not want to play right now.",
     ];
-    const [blorpz, setBlorp] = useState([]);
+    const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
     );
     const [playText, setPlayText] = useState(false);
     const [poo, setPoo] = useState(false);
 
-
-
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
-            setBlorp([...blorpz, ...res.data]);
+            setBlorpz([...blorpz, ...res.data]);
         });
     }, [props.userReducer.user.user_id]);
 
     useInterval(() => {
+        let tempBlorpz = [...blorpz]
         // Your custom logic here
         console.log('hit interval set')
-        blorpz.forEach((element) => {
+        tempBlorpz.forEach((element) => {
             if (element.hunger > 0) {
                 element.hunger -= 1
                 console.log(element.hunger);
@@ -65,6 +64,8 @@ function Playground(props) {
                 console.log(element.happy);
             }
         })
+    
+        setBlorpz([...tempBlorpz])
     }, 1000 * 5)
 
     const feedBlorp = (index) => {
