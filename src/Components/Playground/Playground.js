@@ -31,13 +31,29 @@ function Playground(props) {
         "You toss a ball around with your Blorp.",
         "You tickle your Blorp.",
         "You play tag with your Blorp.",
-        "Your blorp does not want to play right now.",
+        "Your blorp does not want to play right now."
     ];
+<<<<<<< HEAD
     const [blorpz, setBlorpz] = useState([]);
+=======
+    const feedActions = [
+      "You feed your Blorp a cookie.",
+      "You feed your Blorp a sandwich.",
+      "You feed your Blorp a slice of pizza.",
+      "You feed your Blorp a bagel.",
+      "You feed your Blorp some cereal.",
+      "You feed your Blorp some ice cream."
+  ];
+    const [blorpz, setBlorp] = useState([]);
+>>>>>>> master
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
     );
+    const [feed, setFeed] = useState(
+        Math.floor(Math.random() * feedActions.length - 1)
+    );
     const [playText, setPlayText] = useState(false);
+    const [feedText, setFeedText] = useState(false);
     const [poo, setPoo] = useState(false);
 
 
@@ -81,6 +97,11 @@ function Playground(props) {
         console.log(blorpz[index].hunger);
         blorpz[index].hunger = 10;
         console.log(blorpz[index].hunger);
+        setFeed(Math.floor(Math.random() * feedActions.length - 1))
+        setFeedText(true)
+        setTimeout(() => {
+            setFeedText(false)
+        }, 1000 * 2);
         setTimeout(() => {
             setPoo(true);
         }, 1000 * 30);
@@ -98,7 +119,7 @@ function Playground(props) {
         } else {
             blorpz[index].happy += 2;
             // console.log(blorpz[index].happy);
-            setPlay(Math.floor(Math.random() * 2));
+            setPlay(Math.floor(Math.random() * playActions.length - 1));
             setPlayText(true);
             setTimeout(() => {
                 setPlayText(false);
@@ -141,6 +162,7 @@ function Playground(props) {
                             <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
 
 
+                            {!feedText ? null : <div>{feedActions[feed]}</div>}
                             <img className="blorp-img" src={blorp.picture} />
                             {!playText ? null : <div>{playActions[play]}</div>}
                             <h1 className="blorp-name">{blorp.blorp_name}</h1>
