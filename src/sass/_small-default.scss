@@ -253,7 +253,7 @@ body {
             height: 100%;
             margin-top: 70px;
             display: flex;
-            align-items: center;
+            // align-items: center;
             flex-direction: column;
         }
 
@@ -271,6 +271,19 @@ body {
             text-transform: uppercase;
         }
     }
+
+    .progress-container{
+        height: 100%;
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    // .progress-bar-1 {
+    //     background-color: brown;
+    // }
 
     .graveyard-screen {
         background-image: url('https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png');

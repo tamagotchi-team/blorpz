@@ -65,8 +65,8 @@ function Playground(props) {
         blorpz.forEach((element) => {
             element.hunger -= 1;
             element.happy -= 1;
-            console.log(element.happy);
-            console.log(element.hunger);
+            // console.log(element.happy);
+            // console.log(element.hunger);
         });
     }, [1000 * 5]);
     return (
@@ -74,15 +74,20 @@ function Playground(props) {
             <div className="playground-container">
                 {blorpz.map((blorp, index) => {
                     console.log(blorpz);
+                    console.log(blorpz[index].hunger)
                     return (
-                        <div key={index}>
+
+                        <div className="progress-container"key={index}>
+                            <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>
                             <button
                                 onClick={() => {
                                     feedBlorp(index);
                                 }}
                             >
-                                AButton
+                                FEED
 							</button>
+
+                            <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
                             <button
                                 onClick={() => {
                                     playBlorp(index);
@@ -90,6 +95,10 @@ function Playground(props) {
                             >
                                 Play with Blorp
 							</button>
+
+                            <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
+
+
                             <img className="blorp-img" src={blorp.picture} />
                             {!playText ? null : <div>{playActions[play]}</div>}
                             <h1 className="blorp-name">{blorp.blorp_name}</h1>
