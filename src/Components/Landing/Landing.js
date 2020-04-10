@@ -42,7 +42,7 @@ function Landing(props) {
             >
 
                 <p className="play-title ">
-                    Raise Your Blorp Today!
+                    Raise Your Blorp Today! +18
                 </p>
             </div>
             <div className="top-img">
