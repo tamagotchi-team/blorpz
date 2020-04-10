@@ -4,19 +4,18 @@ import axios from "axios";
 
 function Playground(props) {
     const playActions = [
-        `You play hide and seek with your blorp.`,
+        "You play hide and seek with your blorp.",
         "You take your blorp on a walk.",
-        "You play patty-cake with your Blorp.",
+        "You play pattycake with your Blorp.",
         "You toss a ball around with your Blorp.",
         "You tickle your Blorp.",
         "You play tag with your Blorp.",
-        `Your blorp does not want to play right now.`,
+        "Your blorp does not want to play right now.",
     ];
-
+    const [blorpz, setBlorp] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
     );
-    const [blorpz, setBlorp] = useState([]);
     const [playText, setPlayText] = useState(false);
     const [poo, setPoo] = useState(false);
 
@@ -26,50 +25,55 @@ function Playground(props) {
         });
     }, [props.userReducer.user.user_id]);
 
+    const blorpId = props.userReducer.user.user_id;
+
     const feedBlorp = (index) => {
+        console.log(blorpz[index].hunger);
         blorpz[index].hunger = 10;
+        console.log(blorpz[index].hunger);
         setTimeout(() => {
             setPoo(true);
-        }, 1000 * 10);
+        }, 1000 * 5);
     };
 
     const playBlorp = (index) => {
+        console.log(blorpz[index].happy);
         if (blorpz[index].happy >= 10) {
             setPlay(playActions.length - 1);
+            console.log(blorpz[index].happy);
             setPlayText(true);
-            setTimeout(
-                () => {
-                    setPlayText(false);
-                },
-                1000,
-                60,
-                5
-            );
+            setTimeout(() => {
+                setPlayText(false);
+            }, 1000 * 2);
         } else {
-            blorpz[index].happy += 2;
+            blorpz[index].happy++;
             console.log(blorpz[index].happy);
             setPlay(Math.floor(Math.random() * 2));
             setPlayText(true);
-            setTimeout(
-                () => {
-                    setPlayText(false);
-                },
-                1000,
-                60,
-                60,
-                5
-            );
+            setTimeout(() => {
+                setPlayText(false);
+            }, 1000 * 2);
         }
     };
 
     const cleanPoo = () => {
         setPoo(false);
+        console.log("hit poo", poo);
     };
 
+    setInterval(() => {
+        blorpz.forEach((element) => {
+            element.hunger -= 1;
+            element.happy -= 1;
+            console.log(element.happy);
+            console.log(element.hunger);
+        });
+    }, [1000 * 5]);
     return (
         <div className="playground-screen">
             <div className="playground-container">
                 {blorpz.map((blorp, index) => {
+                    console.log(blorpz);
                     return (
                         <div key={index}>
                             <button
@@ -88,9 +92,7 @@ function Playground(props) {
 							</button>
                             <img className="blorp-img" src={blorp.picture} />
                             {!playText ? null : <div>{playActions[play]}</div>}
-
                             <h1 className="blorp-name">{blorp.blorp_name}</h1>
-
                             <div id="poo">
                                 {poo === false ? null : (
                                     <img
