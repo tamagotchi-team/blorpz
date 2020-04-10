@@ -56,7 +56,6 @@ function Playground(props) {
                 console.log(element.hunger);
             } else {
                 element.hunger = 0
-                element.happy = 0
                 console.log(element.hunger);
             } if (element.happy > 0) {
                 element.happy -= 1
@@ -67,10 +66,6 @@ function Playground(props) {
             }
         })
     }, 1000 * 5)
-
-
-
-
 
     const feedBlorp = (index) => {
         console.log(blorpz[index].hunger);
@@ -106,22 +101,6 @@ function Playground(props) {
         // console.log("hit poo", poo);
     };
 
-    // useEffect(() => {
-    //     console.log('hit interval set')
-    //     setInterval(() => {
-    //         blorpz.forEach((element) => {
-    //             if (element.hunger > 0 && element.happy > 0) {
-    //                 element.hunger -= 1;
-    //                 element.happy -= 1;
-    //             } else {
-    //                 element.hunger = 0
-    //                 element.happy = 0
-    //             }
-    //             console.log(element.happy);
-    //             console.log(element.hunger);
-    //         });
-    //     }, [1000 * 5]);
-    // }, [])
 
     return (
         <div className="playground-screen">
