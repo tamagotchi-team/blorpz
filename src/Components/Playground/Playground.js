@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { TimelineLite } from "gsap/all"
 
 function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -32,7 +33,7 @@ function Playground(props) {
         "You play tag with your Blorp.",
         "Your blorp does not want to play right now.",
     ];
-    const [blorpz, setBlorp] = useState([]);
+    const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
     );
@@ -40,17 +41,17 @@ function Playground(props) {
     const [poo, setPoo] = useState(false);
 
 
-
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
-            setBlorp([...blorpz, ...res.data]);
+            setBlorpz([...blorpz, ...res.data]);
         });
     }, [props.userReducer.user.user_id]);
 
     useInterval(() => {
+        let tempBlorpz = [...blorpz]
         // Your custom logic here
         console.log('hit interval set')
-        blorpz.forEach((element) => {
+        tempBlorpz.forEach((element) => {
             if (element.hunger > 0) {
                 element.hunger -= 1
                 console.log(element.hunger);
@@ -65,7 +66,16 @@ function Playground(props) {
                 console.log(element.happy);
             }
         })
-    }, 1000 * 5)
+
+        setBlorpz([...tempBlorpz])
+    }, 1000 * 60)
+
+
+
+
+    useEffect(() => {
+
+    })
 
     const feedBlorp = (index) => {
         console.log(blorpz[index].hunger);
@@ -73,7 +83,7 @@ function Playground(props) {
         console.log(blorpz[index].hunger);
         setTimeout(() => {
             setPoo(true);
-        }, 1000 * 5);
+        }, 1000 * 30);
     };
 
     const playBlorp = (index) => {
@@ -109,7 +119,7 @@ function Playground(props) {
                     console.log(blorpz[index].hunger)
                     return (
 
-                        <div className="progress-container"key={index}>
+                        <div className="progress-container" key={index}>
                             <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>
                             <button
                                 onClick={() => {
