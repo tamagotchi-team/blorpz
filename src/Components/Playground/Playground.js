@@ -1,6 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+
+function useInterval(callback, delay) {
+    const savedCallback = useRef();
+
+    // Remember the latest callback.
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay]);
+}
 
 function Playground(props) {
     const playActions = [
@@ -19,13 +39,33 @@ function Playground(props) {
     const [playText, setPlayText] = useState(false);
     const [poo, setPoo] = useState(false);
 
+
+
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
             setBlorp([...blorpz, ...res.data]);
         });
     }, [props.userReducer.user.user_id]);
 
-    const blorpId = props.userReducer.user.user_id;
+    useInterval(() => {
+        // Your custom logic here
+        console.log('hit interval set')
+        blorpz.forEach((element) => {
+            if (element.hunger > 0) {
+                element.hunger -= 1
+                console.log(element.hunger);
+            } else {
+                element.hunger = 0
+                console.log(element.hunger);
+            } if (element.happy > 0) {
+                element.happy -= 1
+                console.log(element.happy);
+            } else {
+                element.happy = 0
+                console.log(element.happy);
+            }
+        })
+    }, 1000 * 5)
 
     const feedBlorp = (index) => {
         console.log(blorpz[index].hunger);
@@ -40,14 +80,14 @@ function Playground(props) {
         console.log(blorpz[index].happy);
         if (blorpz[index].happy >= 10) {
             setPlay(playActions.length - 1);
-            console.log(blorpz[index].happy);
+            // console.log(blorpz[index].happy);
             setPlayText(true);
             setTimeout(() => {
                 setPlayText(false);
             }, 1000 * 2);
         } else {
-            blorpz[index].happy++;
-            console.log(blorpz[index].happy);
+            blorpz[index].happy += 2;
+            // console.log(blorpz[index].happy);
             setPlay(Math.floor(Math.random() * 2));
             setPlayText(true);
             setTimeout(() => {
@@ -58,17 +98,9 @@ function Playground(props) {
 
     const cleanPoo = () => {
         setPoo(false);
-        console.log("hit poo", poo);
+        // console.log("hit poo", poo);
     };
 
-    setInterval(() => {
-        blorpz.forEach((element) => {
-            element.hunger -= 1;
-            element.happy -= 1;
-            // console.log(element.happy);
-            // console.log(element.hunger);
-        });
-    }, [1000 * 5]);
     return (
         <div className="playground-screen">
             <div className="playground-container">
