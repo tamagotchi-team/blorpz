@@ -33,6 +33,7 @@ function Playground(props) {
         "You play tag with your Blorp.",
         "Your blorp does not want to play right now."
     ];
+
     const feedActions = [
         "You feed your Blorp a cookie.",
         "You feed your Blorp a sandwich.",
@@ -40,7 +41,8 @@ function Playground(props) {
         "You feed your Blorp a bagel.",
         "You feed your Blorp some cereal.",
         "You feed your Blorp some ice cream."
-    ];
+    ]
+
     const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
@@ -77,10 +79,14 @@ function Playground(props) {
                 element.happy = 0
                 console.log(element.happy);
             }
+            if (element.hunger === 0 && element.happy === 0) {
+                element.alive = false
+                console.log(element.alive)
+            }
         })
 
         setBlorpz([...tempBlorpz])
-    }, 1000 * 60)
+    }, 1000 * 3)
 
 
 
@@ -123,6 +129,16 @@ function Playground(props) {
         }
     };
 
+
+    const saveBlorp = (blorp_id, hunger, awake, happy, age, alive) => {
+
+        axios.put(`/api/blorp/${blorp_id}`, { hunger, awake, happy, age, alive })
+            .then((res) => {
+                setBlorpz([...blorpz, ...res.data])
+            })
+            .catch(err => console.log(err))
+
+    }
     const cleanPoo = () => {
         setPoo(false);
         // console.log("hit poo", poo);
@@ -137,41 +153,58 @@ function Playground(props) {
                     return (
 
                         <div className="progress-container" key={index}>
-                            <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>
-                            <button
-                                onClick={() => {
-                                    feedBlorp(index);
-                                }}
-                            >
-                                FEED
-							</button>
+                            <div>
+                                <h3>Hunger</h3>
+                                <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>
 
-                            <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
-                            <button
-                                onClick={() => {
-                                    playBlorp(index);
-                                }}
-                            >
-                                Play with Blorp
-							</button>
+                                <h3>Happiness</h3>
+                                <div style={{ width: "350px", height: '40px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
 
-                            <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
+                                <h3>Life</h3>
+                                <div style={{ width: "350px", height: '40px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
+                            </div>
 
+                            <div className="blorp-info">
+                                {!feedText ? null : <div>{feedActions[feed]}</div>}
+                                <img className="blorp-img" src={blorp.picture} style={{ alignSelf: "center" }} />
+                                {!playText ? null : <div>{playActions[play]}</div>}
+                                <h1 className="blorp-name" style={{ alignSelf: "center" }}>{blorp.blorp_name}</h1>
+                                <div id="poo">
+                                    {poo === false ? null : (
+                                        <img
+                                            src={
+                                                "https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412"
+                                            }
+                                            alt="poo"
+                                            onClick={cleanPoo}
+                                        />
+                                    )}
+                                </div>
+                            </div>
 
-                            {!feedText ? null : <div>{feedActions[feed]}</div>}
-                            <img className="blorp-img" src={blorp.picture} />
-                            {!playText ? null : <div>{playActions[play]}</div>}
-                            <h1 className="blorp-name">{blorp.blorp_name}</h1>
-                            <div id="poo">
-                                {poo === false ? null : (
-                                    <img
-                                        src={
-                                            "https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412"
-                                        }
-                                        alt="poo"
-                                        onClick={cleanPoo}
-                                    />
-                                )}
+                            <div className="button-container">
+                                <button
+                                    onClick={() => {
+                                        feedBlorp(index);
+                                    }}
+                                >
+                                    FEED
+                                </button>
+
+                                <button
+                                    onClick={() => {
+                                        playBlorp(index);
+                                    }}
+                                >
+                                    Play with Blorp
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        saveBlorp()
+                                    }}
+                                >
+                                    Save
+                                </button>
                             </div>
                         </div>
                     );
