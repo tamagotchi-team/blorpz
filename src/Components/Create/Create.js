@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import userReducer from '../../ducks/userReducer'
 
 function Create(props) {
 
-    let blorpPicture = ['https://vignette.wikia.nocookie.net/tamagotchi/images/1/11/Mametchi_anime_large.png/revision/latest?cb=20130920042009', 'https://vignette.wikia.nocookie.net/tamagotchi/images/2/2b/Kuchipatchi_anime.PNG/revision/latest/scale-to-width-down/350?cb=20110918052545', 'https://vignette.wikia.nocookie.net/tamagotchi/images/9/98/Mimitchi_anime.PNG/revision/latest?cb=20150118162441', 'https://vignette.wikia.nocookie.net/tamagotchi/images/2/23/Kiki_anime.png/revision/latest?cb=20150130225113', 'https://vignette.wikia.nocookie.net/tamagotchi/images/b/b8/Kuro.png/revision/latest?cb=20150131001626', 'https://vignette.wikia.nocookie.net/tamagotchi/images/3/33/Anime_spacytchi.PNG/revision/latest/scale-to-width-down/350?cb=20120502054708', 'https://vignette.wikia.nocookie.net/tamagotchi/images/8/8d/Lovelitchi_anime.PNG/revision/latest?cb=20170729032254', 'https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427', 'https://vignette.wikia.nocookie.net/tamagotchi/images/7/7f/Orene_anime.png/revision/latest?cb=20150131004747', 'https://vignette.wikia.nocookie.net/tamagotchi/images/6/61/Neenetchi_anime_artwork.png/revision/latest/scale-to-width-down/180?cb=20141002020213']
+    let blorpPicture = [
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/1/11/Mametchi_anime_large.png/revision/latest?cb=20130920042009', 
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/2/2b/Kuchipatchi_anime.PNG/revision/latest/scale-to-width-down/350?cb=20110918052545', 
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/9/98/Mimitchi_anime.PNG/revision/latest?cb=20150118162441', 
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/2/23/Kiki_anime.png/revision/latest?cb=20150130225113',
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/b/b8/Kuro.png/revision/latest?cb=20150131001626',
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/3/33/Anime_spacytchi.PNG/revision/latest/scale-to-width-down/350?cb=20120502054708', 
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/8/8d/Lovelitchi_anime.PNG/revision/latest?cb=20170729032254', 
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427', 
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/7/7f/Orene_anime.png/revision/latest?cb=20150131004747',
+        'https://vignette.wikia.nocookie.net/tamagotchi/images/6/61/Neenetchi_anime_artwork.png/revision/latest/scale-to-width-down/180?cb=20141002020213'
+    ]
 
     const user_id = props.userReducer.user.user_id
     const [name, setName] = useState('')
@@ -37,26 +46,26 @@ function Create(props) {
     return (
         < div className="create-screen">
             <div className="create-container">
-            <p className="name-title">Name your New Blorp</p>
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    createBlorp(name, picture, hunger, awake, happy, poo, age, alive)
+                <p className="name-title">Name your New Blorp</p>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        createBlorp(name, picture, hunger, awake, happy, poo, age, alive)
 
-                }}
-
-            >
-                <input
-                    placeholder="Enter Blorp Name Here"
-                    className="name-input"
-                    value={name}
-                    onChange={(e) => {
-                        console.log(name)
-                        setName(e.target.value)
                     }}
-                />
-                <button className="create-button">+</button>
-            </form>
+
+                >
+                    <input
+                        placeholder="Enter Blorp Name Here"
+                        className="name-input"
+                        value={name}
+                        onChange={(e) => {
+                            console.log(name)
+                            setName(e.target.value)
+                        }}
+                    />
+                    <button className="create-button">+</button>
+                </form>
             </div>
         </div >
     )
