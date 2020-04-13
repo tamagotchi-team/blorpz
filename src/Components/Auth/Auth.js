@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { logout, register, login } from "../../ducks/userReducer"
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import Landing from '../Landing/Landing'
 
 
