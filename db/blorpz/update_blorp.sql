@@ -1,12 +1,7 @@
 UPDATE blorpz
-SET hunger = ${hunger},
-    awake = ${awake},
-    happy = ${happy},
-    poo = ${poo},
-    age = ${age},
-    alive = ${alive}
-WHERE blorp_id = ${blorp_id};
-
-SELECT hunger, awake, happy, poo, age, alive 
-FROM blorpz 
-WHERE blorp_id = ${blorp_id};
+SET hunger = $2,
+    awake = $3,
+    happy = $4,
+    age = $5,
+    alive = $6
+WHERE blorp_id = $1;

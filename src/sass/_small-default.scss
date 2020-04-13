@@ -190,6 +190,7 @@ body {
     border-radius: 100px;
     padding: 10px 16px;
     width: 120px;
+    text-align: center;
     border: 1px solid rgba($color: #000000, $alpha: 0.8);
     text-transform: uppercase;
     margin-left: 40px;
@@ -257,6 +258,8 @@ body {
         }
 
         .blorp-img{
+            height: 150px;
+            width: 150px;
             align-items: center;
             display: absolute;
             left: 50%;
@@ -267,21 +270,51 @@ body {
             display: flex;
             justify-content: center;
             align-self: center;
-            flex-direction: column;
+            // flex-direction: column;
             position: absolute;
-            top: 60%;
-            bottom: 40%;
+            top: 55%;
+            bottom: 45%;
         }
 
         .blorp-name{
             align-items: center;
             font-family: 'Indie Flower', cursive;
-            font-size: 70px;
+            font-size: 45px;
             text-align: center;
             display: block;
             text-decoration: underline;
             text-transform: uppercase;
+            margin-top: -8px;
         }
+    }
+
+    .playground-button{
+        font-family: 'Indie Flower', cursive;
+        background-color: #2F99D4;
+        border-radius: 100px;
+        padding: 10px 16px;
+        font-size: 15px;
+        color: black;
+        text-transform: uppercase;
+        border: none;
+        letter-spacing: 1px;
+        margin-right: 28px;
+        transition: .15s ease;
+        cursor: pointer;
+        border: 1px solid rgba($color: #000000, $alpha: 0.8);
+        display: inline-block;
+    }
+
+    .playground-button:hover {
+        background-color: #51BCF9;
+    }
+
+    .poo-img{
+        height: 55px;
+        width: 55px;
+        display: inline-block;
+        padding-left: 40px;
+        padding-top: 300px;
     }
 
     .progress-container{
@@ -292,8 +325,14 @@ body {
         flex-direction: column;
         padding: 20px 20px;
         position: relative;
+        font-family: 'Indie Flower', cursive;
     }
 
+    .title{
+        justify-content: flex-end;
+        position: relative;
+        margin-bottom: -2px;
+    }
     // .progress-bar-1 {
     //     background-color: brown;
     // }
