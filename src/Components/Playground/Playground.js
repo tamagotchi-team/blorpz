@@ -31,6 +31,7 @@ function Playground(props) {
         "You toss a ball around with your Blorp.",
         "You tickle your Blorp.",
         "You play tag with your Blorp.",
+        "Your blorp is asleep. You decide not to wake him up.",
         "Your blorp does not want to play right now."
     ];
     const feedActions = [
@@ -56,6 +57,7 @@ function Playground(props) {
 
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
+            console.log(res.data)
             setBlorpz([...blorpz, ...res.data]);
         });
     }, [props.userReducer.user.user_id]);
@@ -63,47 +65,85 @@ function Playground(props) {
     useInterval(() => {
         let tempBlorpz = [...blorpz]
         // Your custom logic here
-        console.log('hit interval set')
+        // console.log('hit interval set')
+        console.log(tempBlorpz)
         tempBlorpz.forEach((element) => {
             if (element.hunger > 0) {
                 element.hunger -= 1
-                console.log(element.hunger);
+                // console.log(element.hunger);
             } else {
                 element.hunger = 0
-                console.log(element.hunger);
+                // console.log(element.hunger);
             } if (element.happy > 0) {
                 element.happy -= 1
-                console.log(element.happy);
+                // console.log(element.happy);
             } else {
                 element.happy = 0
-                console.log(element.happy);
+                // console.log(element.happy);
             }
             if (element.hunger === 0 && element.happy === 0) {
                 element.alive = false
-                console.log(element.alive)
+                console.log(tempBlorpz)
+                saveBlorp(element.hunger, element.awake, element.happy, element.age, element.alive)
+                props.history.push('/create')
             }
         })
         setBlorpz([...tempBlorpz])
     }, 1000 * 3)
 
+    useInterval(() => {
+        let tempBlorpz = [...blorpz]
+        console.log(tempBlorpz)
+
+
+        tempBlorpz.forEach((element) => {
+            if (element.awake === true) {
+                element.awake = false
+                // console.log(element.awake)
+                setTimeout(() => {
+                    element.awake = true
+                    // console.log(element.awake)
+                }, 1000 * 60 * 2)
+            }
+        })
+
+        setBlorpz([...tempBlorpz])
+    }, 1000 * 60 * 5)
 
     const feedBlorp = (index) => {
-        console.log(blorpz[index].hunger);
-        blorpz[index].hunger = 10;
-        console.log(blorpz[index].hunger);
-        setFeed(Math.floor(Math.random() * feedActions.length - 1))
-        setFeedText(true)
-        setTimeout(() => {
-            setFeedText(false)
-        }, 1000 * 2);
-        setTimeout(() => {
-            setPoo(true);
-        }, 1000 * 30);
+        if (blorpz[index].awake === false) {
+            setFeed(feedActions.length - 2)
+            setFeedText(true)
+            setTimeout(() => {
+                setFeedText(false)
+            }, 1000 * 2);
+        } else if (blorpz[index].hunger >= 10) {
+            setFeed(feedActions.length - 1)
+            setFeedText(true)
+            setTimeout(() => {
+                setFeedText(false)
+            }, 1000 * 2);
+        } else {
+            blorpz[index].hunger = 10;
+            setFeed(Math.floor(Math.random() * feedActions.length - 2))
+            setFeedText(true)
+            setTimeout(() => {
+                setFeedText(false)
+            }, 1000 * 2);
+            setTimeout(() => {
+                setPoo(true);
+            }, 1000 * 30);
+        }
     };
 
     const playBlorp = (index) => {
-        console.log(blorpz[index].happy);
-        if (blorpz[index].happy >= 10) {
+        if (blorpz[index].awake === false) {
+            setPlay(playActions.length - 2)
+            setPlayText(true)
+            setTimeout(() => {
+                setPlayText(false)
+            }, 1000 * 2);
+        } else if (blorpz[index].happy >= 10) {
             setPlay(playActions.length - 1);
             // console.log(blorpz[index].happy);
             setPlayText(true);
@@ -113,7 +153,7 @@ function Playground(props) {
         } else {
             blorpz[index].happy += 2;
             // console.log(blorpz[index].happy);
-            setPlay(Math.floor(Math.random() * playActions.length - 1));
+            setPlay(Math.floor(Math.random() * playActions.length - 2));
             setPlayText(true);
             setTimeout(() => {
                 setPlayText(false);
@@ -121,16 +161,20 @@ function Playground(props) {
         }
     };
 
+    const id = blorpz.find((blorp, index) => {
+        return blorp.alive === true
+    })
 
-    const saveBlorp = (blorp_id, hunger, awake, happy, age, alive) => {
 
-        axios.put(`/api/blorp/${blorp_id}`, { hunger, awake, happy, age, alive })
+    const saveBlorp = (hunger, awake, happy, age, alive) => {
+
+        axios.put(`/api/blorp/${id.blorp_id}`, { hunger, awake, happy, age, alive })
             .then((res) => {
-                setBlorpz([...blorpz, ...res.data])
+
             })
             .catch(err => console.log(err))
-
     }
+
     const cleanPoo = () => {
         setPoo(false);
         // console.log("hit poo", poo);
@@ -193,7 +237,7 @@ function Playground(props) {
                                 </button>
                                 <button
                                     onClick={() => {
-                                        saveBlorp(blorp_id)
+                                        saveBlorp(id.hunger, id.awake, id.happy, id.age, id.alive)
                                     }}
                                 >
                                     Save

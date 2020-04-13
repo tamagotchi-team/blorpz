@@ -33,11 +33,12 @@ module.exports = {
         const { blorp_id } = req.params
         const { hunger, awake, happy, age, alive } = req.body
         const dbObj = req.app.get('db').blorpz
+        console.log(blorp_id)
+        console.log(req.body)
 
         dbObj.update_blorp([blorp_id, hunger, awake, happy, age, alive])
-            .then((data) => {
-                console.log(data)
-                res.status(200).send(data)
+            .then(() => {
+                res.sendStatus(200)
             })
             .catch(() => {
                 res.sendStatus(500)
