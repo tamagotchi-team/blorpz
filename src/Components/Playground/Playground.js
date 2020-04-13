@@ -31,6 +31,7 @@ function Playground(props) {
         "You toss a ball around with your Blorp.",
         "You tickle your Blorp.",
         "You play tag with your Blorp.",
+        "Your blorp is asleep. You decide not to wake him up.",
         "Your blorp does not want to play right now."
     ];
     const feedActions = [
@@ -39,9 +40,16 @@ function Playground(props) {
         "You feed your Blorp a slice of pizza.",
         "You feed your Blorp a bagel.",
         "You feed your Blorp some cereal.",
+<<<<<<< HEAD
+        "You feed your Blorp some ice cream.",
+        "Your blorp is asleep. You decide not to wake him up.",
+        "Your blorp does not want to eat right now."
+    ];
+=======
         "You feed your Blorp some ice cream."
     ];
 
+>>>>>>> master
     const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
@@ -87,30 +95,57 @@ function Playground(props) {
         setBlorpz([...tempBlorpz])
     }, 1000 * 3)
 
+    useInterval(() => {
+        let tempBlorpz = [...blorpz]
 
+        tempBlorpz.forEach((element) => {
+            if(element.awake === true) {
+                element.awake = false
+                console.log(element.awake)
+                setTimeout(() => {
+                    element.awake = true
+                    console.log(element.awake)
+                }, 1000 * 60 * 2)
+            }
+        })
 
-
-    useEffect(() => {
-
-    })
+        setBlorpz([...tempBlorpz])
+    }, 1000 * 60 * 5)
 
     const feedBlorp = (index) => {
-        console.log(blorpz[index].hunger);
-        blorpz[index].hunger = 10;
-        console.log(blorpz[index].hunger);
-        setFeed(Math.floor(Math.random() * feedActions.length - 1))
-        setFeedText(true)
-        setTimeout(() => {
-            setFeedText(false)
-        }, 1000 * 2);
-        setTimeout(() => {
-            setPoo(true);
-        }, 1000 * 30);
+        if(blorpz[index].awake === false) {
+            setFeed(feedActions.length - 2)
+            setFeedText(true)
+            setTimeout(() => {
+                setFeedText(false)
+            }, 1000 * 2);
+        } else if(blorpz[index].hunger >= 10) {
+            setFeed(feedActions.length - 1)
+            setFeedText(true)
+            setTimeout(() => {
+                setFeedText(false)
+            }, 1000 * 2);
+        } else {
+            blorpz[index].hunger = 10;
+            setFeed(Math.floor(Math.random() * feedActions.length - 2))
+            setFeedText(true)
+            setTimeout(() => {
+               setFeedText(false)
+            }, 1000 * 2);
+            setTimeout(() => {
+                setPoo(true);
+            }, 1000 * 30);
+        }
     };
 
     const playBlorp = (index) => {
-        console.log(blorpz[index].happy);
-        if (blorpz[index].happy >= 10) {
+        if(blorpz[index].awake === false) {
+            setPlay(playActions.length - 2)
+            setPlayText(true)
+            setTimeout(() => {
+                setPlayText(false)
+            }, 1000 * 2);
+        } else if (blorpz[index].happy >= 10) {
             setPlay(playActions.length - 1);
             // console.log(blorpz[index].happy);
             setPlayText(true);
@@ -120,7 +155,7 @@ function Playground(props) {
         } else {
             blorpz[index].happy += 2;
             // console.log(blorpz[index].happy);
-            setPlay(Math.floor(Math.random() * playActions.length - 1));
+            setPlay(Math.floor(Math.random() * playActions.length - 2));
             setPlayText(true);
             setTimeout(() => {
                 setPlayText(false);
