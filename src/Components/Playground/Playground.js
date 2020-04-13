@@ -93,15 +93,6 @@ function Playground(props) {
 
     useInterval(() => {
         let tempBlorpz = [...blorpz]
-        tempBlorpz.forEach((element) => {
-            element.age++
-            console.log(element.age)
-        })
-        setBlorpz([...tempBlorpz])
-    }, 1000 * 60 * 1)
-
-    useInterval(() => {
-        let tempBlorpz = [...blorpz]
         console.log(tempBlorpz)
 
 
@@ -112,7 +103,7 @@ function Playground(props) {
                 setTimeout(() => {
                     element.awake = true
                     // console.log(element.awake)
-                }, 1000 * 60 * 1)
+                }, 1000 * 60 * 2)
             }
         })
 
@@ -211,7 +202,7 @@ function Playground(props) {
                             </div>
 
                             <div className="blorp-info">
-                                <div className="blorpz-container">
+                                <div className="blopz-container">
                                     {!feedText ? null : <div>{feedActions[feed]}</div>}
                                     <img className="blorp-img" src={blorp.picture} style={{ alignSelf: "center" }} />
                                     {!playText ? null : <div>{playActions[play]}</div>}
