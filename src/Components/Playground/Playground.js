@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { TimelineLite } from "gsap/all"
 
 function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -30,27 +31,40 @@ function Playground(props) {
         "You toss a ball around with your Blorp.",
         "You tickle your Blorp.",
         "You play tag with your Blorp.",
-        "Your blorp does not want to play right now.",
+        "Your blorp does not want to play right now."
     ];
-    const [blorpz, setBlorp] = useState([]);
+
+    const feedActions = [
+        "You play hide and seek with your blorp.",
+        "You take your blorp on a walk.",
+        "You play pattycake with your Blorp.",
+        "You toss a ball around with your Blorp.",
+        "You tickle your Blorp.",
+        "You play tag with your Blorp.",
+        "Your blorp does not want to play right now."]
+    const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
     );
+    const [feed, setFeed] = useState(
+        Math.floor(Math.random() * feedActions.length - 1)
+    );
     const [playText, setPlayText] = useState(false);
+    const [feedText, setFeedText] = useState(false);
     const [poo, setPoo] = useState(false);
-
 
 
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
-            setBlorp([...blorpz, ...res.data]);
+            setBlorpz([...blorpz, ...res.data]);
         });
     }, [props.userReducer.user.user_id]);
 
     useInterval(() => {
+        let tempBlorpz = [...blorpz]
         // Your custom logic here
         console.log('hit interval set')
-        blorpz.forEach((element) => {
+        tempBlorpz.forEach((element) => {
             if (element.hunger > 0) {
                 element.hunger -= 1
                 console.log(element.hunger);
@@ -65,15 +79,29 @@ function Playground(props) {
                 console.log(element.happy);
             }
         })
-    }, 1000 * 5)
+
+        setBlorpz([...tempBlorpz])
+    }, 1000 * 60)
+
+
+
+
+    useEffect(() => {
+
+    })
 
     const feedBlorp = (index) => {
         console.log(blorpz[index].hunger);
         blorpz[index].hunger = 10;
         console.log(blorpz[index].hunger);
+        setFeed(Math.floor(Math.random() * feedActions.length - 1))
+        setFeedText(true)
+        setTimeout(() => {
+            setFeedText(false)
+        }, 1000 * 2);
         setTimeout(() => {
             setPoo(true);
-        }, 1000 * 5);
+        }, 1000 * 30);
     };
 
     const playBlorp = (index) => {
@@ -88,7 +116,7 @@ function Playground(props) {
         } else {
             blorpz[index].happy += 2;
             // console.log(blorpz[index].happy);
-            setPlay(Math.floor(Math.random() * 2));
+            setPlay(Math.floor(Math.random() * playActions.length - 1));
             setPlayText(true);
             setTimeout(() => {
                 setPlayText(false);
@@ -109,43 +137,54 @@ function Playground(props) {
                     console.log(blorpz[index].hunger)
                     return (
 
-                        <div className="progress-container"key={index}>
-                            <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>
-                            <button
-                                onClick={() => {
-                                    feedBlorp(index);
-                                }}
-                            >
-                                FEED
-							</button>
+                        <div className="progress-container" key={index}>   
+                            <div>
+                            <h3>Hunger</h3>
+                            <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>                   
 
-                            <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
-                            <button
-                                onClick={() => {
-                                    playBlorp(index);
-                                }}
-                            >
-                                Play with Blorp
-							</button>
+                            <h3>Happiness</h3>
+                            <div style={{ width: "350px", height: '40px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
 
-                            <div style={{ width: "350px", height: '40px', backgroundColor: "red" }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
+                            <h3>Life</h3>
+                            <div style={{ width: "350px", height: '40px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
+                            </div> 
 
-
-                            <img className="blorp-img" src={blorp.picture} />
-                            {!playText ? null : <div>{playActions[play]}</div>}
-                            <h1 className="blorp-name">{blorp.blorp_name}</h1>
-                            <div id="poo">
-                                {poo === false ? null : (
-                                    <img
-                                        src={
-                                            "https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412"
-                                        }
-                                        alt="poo"
-                                        onClick={cleanPoo}
-                                    />
-                                )}
+                            <div className="blorp-info">
+                                {!feedText ? null : <div>{feedActions[feed]}</div>}
+                                <img className="blorp-img" src={blorp.picture} style={{alignSelf: "center"}} />
+                                {!playText ? null : <div>{playActions[play]}</div>}
+                                <h1 className="blorp-name" style={{alignSelf: "center"}}>{blorp.blorp_name}</h1>
+                                <div id="poo">
+                                    {poo === false ? null : (
+                                        <img
+                                            src={
+                                                "https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412"
+                                            }
+                                            alt="poo"
+                                            onClick={cleanPoo}
+                                        />
+                                    )}
+                                </div>
                             </div>
-                        </div>
+
+                            <div className="button-container">
+                                <button
+                                    onClick={() => {
+                                        feedBlorp(index);
+                                    }}
+                                >
+                                    FEED
+                                </button>
+
+                                <button
+                                    onClick={() => {
+                                        playBlorp(index);
+                                    }}
+                                >
+                                    Play with Blorp
+                                </button>
+                            </div>
+                        </div>                        
                     );
                 })}
             </div>
