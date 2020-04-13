@@ -200,11 +200,13 @@ function Playground(props) {
                             </div>
 
                             <div className="blorp-info">
+                                <div className="blopz-container">
                                 {!feedText ? null : <div>{feedActions[feed]}</div>}
                                 <img className="blorp-img" src={blorp.picture} style={{ alignSelf: "center" }} />
                                 {!playText ? null : <div>{playActions[play]}</div>}
-                                <h1 className="blorp-name" style={{ alignSelf: "center" }}>{blorp.blorp_name}</h1>
-                                <div id="poo">
+                                <h3 className="blorp-name" style={{ alignSelf: "center" }}>{blorp.blorp_name}</h3></div>
+
+                                <div>
                                     {poo === false ? null : (
                                         <img className='poo-img'
                                             src={
