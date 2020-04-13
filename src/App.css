@@ -209,17 +209,28 @@
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
   overflow: hidden;
 }
 .playground-screen .playground-container {
-  height: 100%;
-  margin-top: 70px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .playground-screen .blorp-img {
   align-items: center;
+  display: absolute;
+  left: 50%;
+  right: 50%;
+}
+.playground-screen .blorp-info {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  position: absolute;
+  top: 60%;
+  bottom: 40%;
 }
 .playground-screen .blorp-name {
   align-items: center;
@@ -232,11 +243,13 @@
 }
 
 .progress-container {
-  height: 100%;
-  margin-top: 70px;
+  height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-between;
   flex-direction: column;
+  padding: 20px 20px;
+  position: relative;
 }
 
 .graveyard-screen {
@@ -256,6 +269,11 @@
 }
 .graveyard-screen .dead-blorp {
   align-items: center;
+}
+.graveyard-screen .button-container {
+  display: relative;
+  bottom: 0;
+  right: 0;
 }
 
 body {
