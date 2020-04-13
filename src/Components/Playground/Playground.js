@@ -78,10 +78,14 @@ function Playground(props) {
                 element.happy = 0
                 console.log(element.happy);
             }
+            if (element.hunger === 0 && element.happy === 0) {
+                element.alive = false
+                console.log(element.alive)
+            }
         })
 
         setBlorpz([...tempBlorpz])
-    }, 1000 * 60)
+    }, 1000 * 3)
 
 
 
@@ -124,6 +128,16 @@ function Playground(props) {
         }
     };
 
+
+    const saveBlorp = (blorp_id, hunger, awake, happy, age, alive) => {
+
+        axios.put(`/api/blorp/${blorp_id}`, { hunger, awake, happy, age, alive })
+            .then((res) => {
+                setBlorpz([...blorpz, ...res.data])
+            })
+            .catch(err => console.log(err))
+
+    }
     const cleanPoo = () => {
         setPoo(false);
         // console.log("hit poo", poo);
@@ -140,14 +154,14 @@ function Playground(props) {
                         <div className="progress-container" key={index}>
                             <div>
                                 <h3 className="title">Hunger</h3>
-                                <div className='progress-bar-1' style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12, fontFamily: `'Indie Flower', cursive` }}><div style={{ width: `${blorpz[index].hunger /10 * 100}%`, backgroundColor: `${blorpz[index].hunger < 3 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
+                                <div className='progress-bar-1' style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12, fontFamily: `'Indie Flower', cursive` }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, backgroundColor: `${blorpz[index].hunger < 3 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
 
                                 <h3 className="title">Happiness</h3>
-                                <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${blorpz[index].happy /10 * 100}%`, backgroundColor: `${blorpz[index].happy < 3 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
+                                <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, backgroundColor: `${blorpz[index].happy < 3 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
 
 
                                 <h3 className="title">Life</h3>
-                                <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: `${blorpz[index].hunger + blorpz[index].happy < 4 ? '#AA1212' : '#6FCC4E'}`, height: '40px'  }}></div></div>
+                                <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: `${blorpz[index].hunger + blorpz[index].happy < 4 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
                             </div>
 
                             <div className="blorp-info">
@@ -183,6 +197,13 @@ function Playground(props) {
                                     }}
                                 >
                                     Play with Blorp
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        saveBlorp()
+                                    }}
+                                >
+                                    Save
                                 </button>
                             </div>
                         </div>

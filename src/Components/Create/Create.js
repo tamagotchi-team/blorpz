@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import userReducer from '../../ducks/userReducer'
 
 function Create(props) {
 
@@ -37,26 +35,26 @@ function Create(props) {
     return (
         < div className="create-screen">
             <div className="create-container">
-            <p className="name-title">Name your New Blorp</p>
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    createBlorp(name, picture, hunger, awake, happy, poo, age, alive)
+                <p className="name-title">Name your New Blorp</p>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        createBlorp(name, picture, hunger, awake, happy, poo, age, alive)
 
-                }}
-
-            >
-                <input
-                    placeholder="Enter Blorp Name Here"
-                    className="name-input"
-                    value={name}
-                    onChange={(e) => {
-                        console.log(name)
-                        setName(e.target.value)
                     }}
-                />
-                <button className="create-button">+</button>
-            </form>
+
+                >
+                    <input
+                        placeholder="Enter Blorp Name Here"
+                        className="name-input"
+                        value={name}
+                        onChange={(e) => {
+                            console.log(name)
+                            setName(e.target.value)
+                        }}
+                    />
+                    <button className="create-button">+</button>
+                </form>
             </div>
         </div >
     )
