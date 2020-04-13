@@ -33,26 +33,15 @@ function Playground(props) {
         "You play tag with your Blorp.",
         "Your blorp does not want to play right now."
     ];
-<<<<<<< HEAD
     const feedActions = [
-      "You feed your Blorp a cookie.",
-      "You feed your Blorp a sandwich.",
-      "You feed your Blorp a slice of pizza.",
-      "You feed your Blorp a bagel.",
-      "You feed your Blorp some cereal.",
-      "You feed your Blorp some ice cream."
+        "You feed your Blorp a cookie.",
+        "You feed your Blorp a sandwich.",
+        "You feed your Blorp a slice of pizza.",
+        "You feed your Blorp a bagel.",
+        "You feed your Blorp some cereal.",
+        "You feed your Blorp some ice cream."
     ];
-=======
 
-    const feedActions = [
-        "You play hide and seek with your blorp.",
-        "You take your blorp on a walk.",
-        "You play pattycake with your Blorp.",
-        "You toss a ball around with your Blorp.",
-        "You tickle your Blorp.",
-        "You play tag with your Blorp.",
-        "Your blorp does not want to play right now."]
->>>>>>> master
     const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
@@ -148,26 +137,27 @@ function Playground(props) {
                     console.log(blorpz[index].hunger)
                     return (
 
-                        <div className="progress-container" key={index}>   
+                        <div className="progress-container" key={index}>
                             <div>
-                            <h3>Hunger</h3>
-                            <div className='progress-bar-1' style={{ width: "400px", height: '50px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${blorpz[index].hunger / 10 * 100}%`, height: '50px', backgroundColor: "green" }}></div></div>                   
+                                <h3 className="title">Hunger</h3>
+                                <div className='progress-bar-1' style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12, fontFamily: `'Indie Flower', cursive` }}><div style={{ width: `${blorpz[index].hunger /10 * 100}%`, backgroundColor: `${blorpz[index].hunger < 3 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
 
-                            <h3>Happiness</h3>
-                            <div style={{ width: "350px", height: '40px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${blorpz[index].happy / 10 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
+                                <h3 className="title">Happiness</h3>
+                                <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${blorpz[index].happy /10 * 100}%`, backgroundColor: `${blorpz[index].happy < 3 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
 
-                            <h3>Life</h3>
-                            <div style={{ width: "350px", height: '40px', backgroundColor: "red", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: "green" }}></div></div>
-                            </div> 
+
+                                <h3 className="title">Life</h3>
+                                <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: `${blorpz[index].hunger + blorpz[index].happy < 4 ? '#AA1212' : '#6FCC4E'}`, height: '40px'  }}></div></div>
+                            </div>
 
                             <div className="blorp-info">
                                 {!feedText ? null : <div>{feedActions[feed]}</div>}
-                                <img className="blorp-img" src={blorp.picture} style={{alignSelf: "center"}} />
+                                <img className="blorp-img" src={blorp.picture} style={{ alignSelf: "center" }} />
                                 {!playText ? null : <div>{playActions[play]}</div>}
-                                <h1 className="blorp-name" style={{alignSelf: "center"}}>{blorp.blorp_name}</h1>
+                                <h1 className="blorp-name" style={{ alignSelf: "center" }}>{blorp.blorp_name}</h1>
                                 <div id="poo">
                                     {poo === false ? null : (
-                                        <img
+                                        <img className='poo-img'
                                             src={
                                                 "https://vignette.wikia.nocookie.net/tamagotchi/images/e/e2/Poop_large.png/revision/latest/scale-to-width-down/340?cb=20141219065412"
                                             }
@@ -179,15 +169,15 @@ function Playground(props) {
                             </div>
 
                             <div className="button-container">
-                                <button
+                                <button className="playground-button"
                                     onClick={() => {
                                         feedBlorp(index);
                                     }}
                                 >
-                                    FEED
+                                    FEED BLORP
                                 </button>
 
-                                <button
+                                <button className="playground-button"
                                     onClick={() => {
                                         playBlorp(index);
                                     }}
@@ -195,7 +185,7 @@ function Playground(props) {
                                     Play with Blorp
                                 </button>
                             </div>
-                        </div>                        
+                        </div>
                     );
                 })}
             </div>

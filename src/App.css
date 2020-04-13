@@ -229,8 +229,8 @@
   align-self: center;
   flex-direction: column;
   position: absolute;
-  top: 60%;
-  bottom: 40%;
+  top: 75%;
+  bottom: 25%;
 }
 .playground-screen .blorp-name {
   align-items: center;
@@ -242,6 +242,33 @@
   text-transform: uppercase;
 }
 
+.playground-button {
+  font-family: "Indie Flower", cursive;
+  background-color: #2F99D4;
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: black;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+  margin-right: 28px;
+  transition: 0.15s ease;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  display: inline-block;
+}
+
+.playground-button:hover {
+  background-color: #51BCF9;
+}
+
+.poo-img {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
 .progress-container {
   height: 100vh;
   display: flex;
@@ -250,6 +277,13 @@
   flex-direction: column;
   padding: 20px 20px;
   position: relative;
+  font-family: "Indie Flower", cursive;
+}
+
+.title {
+  justify-content: flex-end;
+  position: relative;
+  margin-bottom: -2px;
 }
 
 .graveyard-screen {
