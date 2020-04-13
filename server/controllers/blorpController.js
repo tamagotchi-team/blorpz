@@ -13,7 +13,7 @@ module.exports = {
             })
             .catch((err) => {
                 res.sendStatus(500)
-            })'m'
+            })
     },
 
     getBlorp: async (req, res) => {
