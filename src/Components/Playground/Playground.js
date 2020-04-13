@@ -97,6 +97,7 @@ function Playground(props) {
             element.age++
             console.log(element.age)
         })
+        setBlorpz([...tempBlorpz])
     }, 1000 * 60 * 1)
 
     useInterval(() => {
