@@ -83,16 +83,9 @@ function Playground(props) {
                 console.log(element.alive)
             }
         })
-
         setBlorpz([...tempBlorpz])
     }, 1000 * 3)
 
-
-
-
-    useEffect(() => {
-
-    })
 
     const feedBlorp = (index) => {
         console.log(blorpz[index].hunger);
@@ -200,7 +193,7 @@ function Playground(props) {
                                 </button>
                                 <button
                                     onClick={() => {
-                                        saveBlorp()
+                                        saveBlorp(blorp_id)
                                     }}
                                 >
                                     Save
