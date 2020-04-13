@@ -33,6 +33,16 @@ function Playground(props) {
         "You play tag with your Blorp.",
         "Your blorp does not want to play right now."
     ];
+<<<<<<< HEAD
+    const feedActions = [
+      "You feed your Blorp a cookie.",
+      "You feed your Blorp a sandwich.",
+      "You feed your Blorp a slice of pizza.",
+      "You feed your Blorp a bagel.",
+      "You feed your Blorp some cereal.",
+      "You feed your Blorp some ice cream."
+    ];
+=======
 
     const feedActions = [
         "You play hide and seek with your blorp.",
@@ -42,6 +52,7 @@ function Playground(props) {
         "You tickle your Blorp.",
         "You play tag with your Blorp.",
         "Your blorp does not want to play right now."]
+>>>>>>> master
     const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
