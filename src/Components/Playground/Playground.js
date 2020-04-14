@@ -209,6 +209,8 @@ function Playground(props) {
 
                                 <h3 className="title">Life</h3>
                                 <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: `${blorpz[index].hunger + blorpz[index].happy < 4 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
+
+                                <h2 className="blorp-age">Age: {blorpz[index].age}</h2>
                             </div>
 
                             <div className="blorp-info">
