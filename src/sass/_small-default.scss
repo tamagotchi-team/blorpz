@@ -258,8 +258,8 @@ body {
         }
 
         .blorp-img{
-            height: 150px;
-            width: 150px;
+            height: 250px;
+            width: 250px;
             align-items: center;
             display: absolute;
             left: 50%;
@@ -315,6 +315,11 @@ body {
         display: inline-block;
         padding-left: 40px;
         padding-top: 300px;
+    }
+
+    .blorp-age{
+        margin-left: 270px;
+        margin-top: -5px;
     }
 
     .progress-container{
