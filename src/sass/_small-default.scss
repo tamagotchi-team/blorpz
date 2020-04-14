@@ -190,6 +190,7 @@ body {
     border-radius: 100px;
     padding: 10px 16px;
     width: 120px;
+    text-align: center;
     border: 1px solid rgba($color: #000000, $alpha: 0.8);
     text-transform: uppercase;
     margin-left: 40px;
@@ -257,6 +258,8 @@ body {
         }
 
         .blorp-img{
+            height: 150px;
+            width: 150px;
             align-items: center;
             display: absolute;
             left: 50%;
@@ -267,20 +270,21 @@ body {
             display: flex;
             justify-content: center;
             align-self: center;
-            flex-direction: column;
+            // flex-direction: column;
             position: absolute;
-            top: 75%;
-            bottom: 25%;
+            top: 55%;
+            bottom: 45%;
         }
 
         .blorp-name{
             align-items: center;
             font-family: 'Indie Flower', cursive;
-            font-size: 70px;
+            font-size: 45px;
             text-align: center;
             display: block;
             text-decoration: underline;
             text-transform: uppercase;
+            margin-top: -8px;
         }
     }
 
@@ -306,9 +310,11 @@ body {
     }
 
     .poo-img{
-        height: 40px;
-        width: 40px;
+        height: 55px;
+        width: 55px;
         display: inline-block;
+        padding-left: 40px;
+        padding-top: 300px;
     }
 
     .progress-container{
