@@ -9,20 +9,23 @@ function Graveyard(props) {
     useEffect(() => {
         axios.get(`/api/deadBlorpz/${props.userReducer.user.user_id}`).then(res => {
             setDead([...dead, ...res.data])
+            console.log(res.data)
         })
     }, [props.userReducer.user.user_id])
-
 
     return (
         <div className="graveyard-screen">
             <div className="graveyard-container">
                 {dead.map((dead, index) => {
-                    return <div
-                        
+                    return <div 
+                        className='blorp-dead'
                         key={index}>
-                        <img 
-                        className="dead-blorp"
-                        src={dead.picture} />
+                            <p>{dead.blorp_name}</p>
+                            <img 
+                                className="dead-blorp-img"
+                                src={dead.picture}
+                                alt="dead blorp memorial image" />
+                            <p>Age: {dead.age}</p>
                     </div>
                 })}
             </div>
