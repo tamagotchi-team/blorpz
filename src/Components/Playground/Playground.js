@@ -40,16 +40,10 @@ function Playground(props) {
         "You feed your Blorp a slice of pizza.",
         "You feed your Blorp a bagel.",
         "You feed your Blorp some cereal.",
-<<<<<<< HEAD
         "You feed your Blorp some ice cream.",
         "Your blorp is asleep. You decide not to wake him up.",
         "Your blorp does not want to eat right now."
     ];
-=======
-        "You feed your Blorp some ice cream."
-    ];
-
->>>>>>> master
     const [blorpz, setBlorpz] = useState([]);
     const [play, setPlay] = useState(
         Math.floor(Math.random() * playActions.length - 1)
