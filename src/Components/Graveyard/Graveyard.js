@@ -8,7 +8,7 @@ function Graveyard(props) {
     
     const [dead, setDead] = useState([])
     const memorialText = [
-        `"I will ride eternal! Shiny, and chrome!"`,
+        `"I will ride eternal! Shiny and chrome!"`,
         `"I made a grave mistake."`,
         `"Avenge me."`,
         `"That damn Carol Baskin!"`,
