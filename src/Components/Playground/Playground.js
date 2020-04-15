@@ -55,6 +55,15 @@ function Playground(props) {
     const [feedText, setFeedText] = useState(false);
     const [poo, setPoo] = useState(false);
 
+    const [playTl] = useState(new TimelineLite({ paused: false }));
+    let blorpTest = null
+
+    useEffect(() => {
+        playTl
+            .to(blorpTest, .75, { x: 500 })
+            .from(blorpTest, .75, { rotation: 180, ease: "elastic.out(1, 0.25)", x: -1000 })
+    }, [blorpTest])
+
 
     useEffect(() => {
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
@@ -90,7 +99,7 @@ function Playground(props) {
             }
         })
         setBlorpz([...tempBlorpz])
-    }, 1000 * 3)
+    }, 1000 * 60 * 60 * 3)
 
     useInterval(() => {
         let tempBlorpz = [...blorpz]
@@ -120,6 +129,7 @@ function Playground(props) {
             }, 1000 * 2);
         } else if (blorpz[index].hunger >= 10) {
             setFeed(feedActions.length - 1)
+            playTl.play()
             setFeedText(true)
             setTimeout(() => {
                 setFeedText(false)
@@ -201,6 +211,10 @@ function Playground(props) {
                                 <h3 className="title">Life</h3>
                                 <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: `${blorpz[index].hunger + blorpz[index].happy < 4 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
                             </div>
+                            <div ref={event => blorpTest = event} style={{ width: '50px', height: "50px", backgroundColor: 'blue' }}
+                                onClick={() => playTl.play()}
+                            > hey</div>
+
 
                             <div className="blorp-info">
                                 <div className="blopz-container">
@@ -234,6 +248,7 @@ function Playground(props) {
                                 <button className="playground-button"
                                     onClick={() => {
                                         playBlorp(index);
+
                                     }}
                                 >
                                     Play with Blorp
@@ -245,6 +260,7 @@ function Playground(props) {
                                 >
                                     Save
                                 </button>
+
                             </div>
                         </div>
                     );
