@@ -12,21 +12,18 @@ function Graveyard(props) {
         })
     }, [props.userReducer.user.user_id])
 
-
     return (
         <div className="graveyard-screen">
             <div className="graveyard-container">
                 {dead.map((dead, index) => {
-                    return <div
-                        
-                        key={index}>
+                    return <div key={index}>
                         <img 
-                        className="dead-blorp"
-                        src={dead.picture} />
+                            className="dead-blorp"
+                            src={dead.picture}
+                        />
                     </div>
                 })}
             </div>
-
         </div>
     )
 }
@@ -34,7 +31,6 @@ function Graveyard(props) {
 const mapStateToProps = reduxState => {
     return {
         userReducer: reduxState.userReducer,
-
     }
 }
 

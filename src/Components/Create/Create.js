@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
@@ -11,7 +11,6 @@ function Create(props) {
         'https://vignette.wikia.nocookie.net/tamagotchi/images/2/23/Kiki_anime.png/revision/latest?cb=20150130225113',
         'https://vignette.wikia.nocookie.net/tamagotchi/images/b/b8/Kuro.png/revision/latest?cb=20150131001626',
         'https://vignette.wikia.nocookie.net/tamagotchi/images/3/33/Anime_spacytchi.PNG/revision/latest/scale-to-width-down/350?cb=20120502054708', 
-        'https://vignette.wikia.nocookie.net/tamagotchi/images/8/8d/Lovelitchi_anime.PNG/revision/latest?cb=20170729032254', 
         'https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427', 
         'https://vignette.wikia.nocookie.net/tamagotchi/images/7/7f/Orene_anime.png/revision/latest?cb=20150131004747',
         'https://vignette.wikia.nocookie.net/tamagotchi/images/6/61/Neenetchi_anime_artwork.png/revision/latest/scale-to-width-down/180?cb=20141002020213'
@@ -27,9 +26,7 @@ function Create(props) {
     const [alive, setAlive] = useState(true)
     const [picture, setPicture] = useState(blorpPicture[Math.floor(Math.random() * 9)])
 
-
     const createBlorp = (name, picture, hunger, awake, happy, poo, age, alive) => {
-        console.log(user_id, name, hunger, awake, happy, poo, age, alive, picture)
         axios.post(`/api/blorp/${user_id}`, { name, picture, hunger, awake, happy, poo, age, alive })
         setName('')
         setHunger(Math.floor(Math.random() * 10))
@@ -40,20 +37,17 @@ function Create(props) {
         setAlive(true)
         setPicture(blorpPicture[Math.floor(Math.random() * 9)])
         props.history.push('/playground')
-
     }
 
     return (
-        < div className="create-screen">
+        <div className="create-screen">
             <div className="create-container">
                 <p className="name-title">Name your New Blorp</p>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
                         createBlorp(name, picture, hunger, awake, happy, poo, age, alive)
-
                     }}
-
                 >
                     <input
                         placeholder="Enter Blorp Name Here"
@@ -67,7 +61,7 @@ function Create(props) {
                     <button className="create-button">+</button>
                 </form>
             </div>
-        </div >
+        </div>
     )
 }
 
@@ -75,7 +69,6 @@ const mapStateToProps = reduxState => {
     return {
         userReducer: reduxState.userReducer
     }
-
 }
 
 export default connect(mapStateToProps)(Create)

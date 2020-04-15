@@ -3,12 +3,10 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 
-
 const checkUser = require('./middleware/checkUser')
 const authCtrl = require('./controllers/authController')
 const blorpCtrl = require('./controllers/blorpController')
 const deadBlorpCtrl = require('./controllers/deadBlorpzCtrl')
-
 
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
@@ -22,7 +20,6 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
     secret: SESSION_SECRET
 }))
-
 
 massive({
     connectionString: CONNECTION_STRING,
