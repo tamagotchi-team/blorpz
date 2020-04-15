@@ -13,7 +13,6 @@ function Landing(props) {
     let blorpFour = null;
     let playTitle = null;
 
-
     useEffect(() => {
         tl
             .to(blorpzTitle, .75, { x: 500 })
@@ -27,20 +26,16 @@ function Landing(props) {
             .from(blorpFour, .25, { x: 500 })
             .from(blorpFour, .75, { rotation: 180, ease: "elastic.out(1, 0.25)", y: -300 })
             .from(playTitle, .75, { ease: "bounce(.5, 0.25)", x: -900 })
-
-
     }, [])
 
 
     return (
-
         <div className="landing-container">
             <div className="animation-bumper">
             </div>
             <div
                 ref={event => playTitle = event}
             >
-
                 <p className="play-title ">
                     Raise Your Blorp Today! +18
                 </p>
@@ -60,17 +55,13 @@ function Landing(props) {
                 />
             </div>
             <div
-
                 ref={event => blorpzTitle = event}
             >
                 <p className="blorpz-title">
                     BLORPZ
                 </p>
             </div>
-
             <div className="top-img">
-
-
                 <img
                     ref={event => blorpTwo = event}
                     src="https://vignette.wikia.nocookie.net/tamagotchi/images/0/03/Himespetchi_anime.png/revision/latest?cb=20120131150427"
@@ -84,7 +75,6 @@ function Landing(props) {
                     height="250"
                 /></div>
         </div>
-
     );
 }
 
