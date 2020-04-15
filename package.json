@@ -60,6 +60,7 @@
 		"cross-env": "^7.0.2",
 		"electron": "^8.2.0",
 		"electron-builder": "^22.4.1",
+		"jest-electron": "^0.1.11",
 		"wait-on": "^4.0.1"
 	},
 	"jest": {
