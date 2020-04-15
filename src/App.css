@@ -219,6 +219,8 @@
   position: relative;
 }
 .playground-screen .blorp-img {
+  height: 250px;
+  width: 250px;
   align-items: center;
   display: absolute;
   left: 50%;
@@ -272,6 +274,13 @@
   padding-top: 300px;
 }
 
+.blorp-age {
+  margin-left: 270px;
+  margin-top: -5px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 .progress-container {
   height: 100vh;
   display: flex;
@@ -296,16 +305,36 @@
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
+  display: flex;
 }
 .graveyard-screen .graveyard-container {
-  height: 100%;
+  width: 100vw;
   margin-top: 70px;
+  margin-left: 225px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  font-family: "Indie Flower", cursive;
+  font-size: 24px;
+  text-shadow: -1px 2px 1px #263848;
+  overflow-y: scroll;
 }
-.graveyard-screen .dead-blorp {
+.graveyard-screen .blorp-dead {
+  background-color: #8cc0ca;
+  border-radius: 120px 120px 0 0;
+  color: grey;
+  margin: 20px;
+  padding: 10px;
+  max-width: 225px;
+  max-height: 550px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+.graveyard-screen .dead-blorp-img {
   align-items: center;
+  max-width: 225px;
 }
 .graveyard-screen .button-container {
   display: relative;

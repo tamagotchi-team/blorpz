@@ -243,7 +243,7 @@ body {
 
 
     .playground-screen{
-        background-image: url('https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg');
+        // background-image: url('https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg');
         height: 100vh;
         background-size: cover;
         background-repeat: no-repeat;        
@@ -258,8 +258,8 @@ body {
         }
 
         .blorp-img{
-            height: 150px;
-            width: 150px;
+            height: 250px;
+            width: 250px;
             align-items: center;
             display: absolute;
             left: 50%;
@@ -317,6 +317,13 @@ body {
         padding-top: 300px;
     }
 
+    .blorp-age{
+        margin-left: 270px;
+        margin-top: -5px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
     .progress-container{
         height: 100vh;
         display: flex;
@@ -340,21 +347,43 @@ body {
     .graveyard-screen {
         background-image: url('https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png');
         height: 100vh;
+        // background-color: green;
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
+        display: flex;
 
         .graveyard-container{
-            height: 100%;
+            // height: 100vw;
+            width: 100vw;
             margin-top: 70px;
+            margin-left: 225px;
             display: flex;
-            align-items: center;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            font-family: "Indie Flower", cursive;
+            font-size: 24px;
+            text-shadow: -1px 2px 1px #263848;
+            overflow-y: scroll;
+        }
+        .blorp-dead {
+            background-color: #8cc0ca;
+            border-radius: 120px 120px 0 0;
+            color: grey;
+            margin: 20px;
+            padding: 10px;
+            max-width: 225px;
+            max-height: 550px;
+            text-align: center;
+            display: flex;
             flex-direction: column;
+            align-content: space-around;
         }
 
-        .dead-blorp {
+        .dead-blorp-img {
             align-items: center;
+            max-width: 225px;
         }
 
         .button-container {
