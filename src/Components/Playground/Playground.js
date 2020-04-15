@@ -54,6 +54,7 @@ function Playground(props) {
     const [playText, setPlayText] = useState(false);
     const [feedText, setFeedText] = useState(false);
     const [poo, setPoo] = useState(false);
+    const [background, setBackground] = useState('https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg')
 
 
     useEffect(() => {
@@ -191,7 +192,7 @@ function Playground(props) {
     };
 
     return (
-        <div className="playground-screen">
+        <div className="playground-screen" style={{ backgroundImage: `url(${background})` }}>
             <div className="playground-container">
                 {blorpz.map((blorp, index) => {
                     console.log(blorpz);
@@ -210,7 +211,12 @@ function Playground(props) {
                                 <h3 className="title">Life</h3>
                                 <div style={{ width: "350px", height: '40px', backgroundColor: "#5E4444", marginBottom: 12 }}><div style={{ width: `${(blorpz[index].hunger + blorpz[index].happy) / 20 * 100}%`, height: '40px', backgroundColor: `${blorpz[index].hunger + blorpz[index].happy < 4 ? '#AA1212' : '#6FCC4E'}`, height: '40px' }}></div></div>
 
-                                <h2 className="blorp-age">Age: {blorpz[index].age}</h2>
+                                <div className="blorp-age" onClick={() => {
+                                        setBackground(background === "https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg" ? "https://pbs.twimg.com/media/C4TkyIrWYAADSyy.png" : "https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg")
+
+                                    }}>Age: {blorpz[index].age}
+
+                                </div>
                             </div>
 
                             <div className="blorp-info">
@@ -272,3 +278,5 @@ const mapStateToProps = (reduxState) => {
 };
 
 export default connect(mapStateToProps)(Playground);
+
+
