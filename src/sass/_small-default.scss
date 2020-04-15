@@ -352,36 +352,60 @@ body {
         overflow: hidden;
         display: flex;
 
-        .graveyard-container{
-            // height: 100vw;
-            width: 100vw;
+        
+        .graveyard-container {
+            // height: 650px;
+            width: 90vw;
+            overflow-x: scroll;
             margin-top: 70px;
             margin-left: 225px;
             display: flex;
             flex-direction: row-reverse;
             justify-content: flex-end;
+            flex-wrap: nowrap;
             font-family: "Indie Flower", cursive;
             font-size: 24px;
             text-shadow: -1px 2px 1px #263848;
-            overflow-y: scroll;
         }
+
+        // .gravesite {
+        //     position: static;
+        // }
+
         .blorp-dead {
             background-color: #8cc0ca;
             border-radius: 120px 120px 0 0;
             color: grey;
-            margin: 20px;
+            margin: 30px;
             padding: 10px;
             max-width: 225px;
-            max-height: 550px;
+            height: 27em;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-content: space-around;
+            box-shadow: -10px -8px 1px #ffffff;
+            position: relative;
         }
-
+        
+ 
         .dead-blorp-img {
             align-items: center;
             max-width: 225px;
+        }
+
+        .grass {
+            max-width: 310px;
+            position: absolute;
+            bottom: -10px;
+            left: -26px;
+        }
+
+        #memorial-text {
+            height: 100px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
         }
 
         .button-container {
