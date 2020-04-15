@@ -35,7 +35,8 @@ function Graveyard(props) {
         <div className="graveyard-screen">
             <div className="graveyard-container">
                 {dead.map((dead, index) => {
-                    return <div className='blorp-dead'
+                    return <div 
+                        className='blorp-dead'
                         key={index}>
                             <p>{dead.blorp_name}</p>
                             <p>Age: {dead.age}</p>
@@ -47,13 +48,11 @@ function Graveyard(props) {
                                 {memorialText[Math.floor(Math.random() * memorialText.length)]}
                             </div>
                             <img src={grass} className='grass' alt='grass' />
-                            
                     </div>
                 
 
                 })}
             </div>
-
         </div>
     )
 }
@@ -61,7 +60,6 @@ function Graveyard(props) {
 const mapStateToProps = reduxState => {
     return {
         userReducer: reduxState.userReducer,
-
     }
 }
 

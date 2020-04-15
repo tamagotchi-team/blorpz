@@ -9,8 +9,6 @@ function Auth(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-
-
     useEffect(() => {
         if (props.userReducer.user.user_id) {
             if (props.userReducer.user.username && !props.userReducer.blorpz[0]) {
@@ -22,17 +20,14 @@ function Auth(props) {
     }, [props.userReducer.user.user_id]);
 
     const handleUsername = (event) => {
-
         setUsername(event.target.value);
     };
 
     const handlePassword = (event) => {
-
         setPassword(event.target.value)
     }
 
     const registerUser = (event) => {
-
         event.preventDefault()
         props.register(username, password);
         setUsername('')
@@ -41,7 +36,6 @@ function Auth(props) {
     };
 
     const loginUser = event => {
-
         event.preventDefault()
         props.login(username, password)
         setUsername('')
@@ -73,12 +67,9 @@ function Auth(props) {
 }
 
 const mapStateToProps = reduxState => {
-    // console.log(reduxState)
     return {
         userReducer: reduxState.userReducer,
-
     }
-
 }
 
 export default connect(mapStateToProps, { register, login, logout })(Auth)

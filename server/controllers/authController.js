@@ -2,7 +2,6 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
     register: async (req, res) => {
-        // console.log(chalk.red("hit register", req.body));
         const db = req.app.get("db").auth;
         const { username, password } = req.body;
 
@@ -24,6 +23,7 @@ module.exports = {
             return res.sendStatus(500);
         }
     },
+    
     login: async (req, res) => {
         const { username, password } = req.body
         const { session } = req
@@ -39,18 +39,19 @@ module.exports = {
         if (authenticated) {
             delete user.password
             session.user = { user, blorpz }
-            // console.log(session.user)
             res.status(202).send(session.user)
         } else {
             res.status(401).send('Incorrect username or password')
         }
     },
+
     logout: (req, res) => {
         if (req.session) {
             req.session.destroy()
         }
         res.sendStatus(200)
     },
+
     getUser: (req, res) => {
         res.status(200).send(req.session.user)
     }

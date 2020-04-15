@@ -3,16 +3,11 @@ import routes from './routes'
 import { withRouter } from 'react-router-dom'
 import Nav from './Components/Nav/Nav'
 
-
 import './App.css';
-
 
 function App(props) {
   return (
-    
     <div className="App">
-
-
       {props.location.pathname === "/"
       ? (
         <>
