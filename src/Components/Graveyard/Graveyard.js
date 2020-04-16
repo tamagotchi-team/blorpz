@@ -49,14 +49,11 @@ function Graveyard(props) {
                                 className="dead-blorp-img"
                                 src={dead.picture}
                                 alt="dead blorp memorial image" />
-<<<<<<< HEAD
-                            <p>Age: {dead.age}</p>
-=======
                             <div id='memorial-text'>
                                 {memorialText[Math.floor(Math.random() * memorialText.length)]}
                             </div>
                             <img src={grass} className='grass' alt='grass' />
->>>>>>> master
+
                     </div>
                 
 
