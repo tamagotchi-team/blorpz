@@ -349,14 +349,13 @@
         background-repeat: no-repeat;
         position: relative;
         display: flex;
-        // overflow: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
 
         
         .graveyard-container {
-            // width: 100vw;
-            overflow-x: scroll;
             margin-top: 70px;
-            margin-left: 225px;
+            padding-left: 225px;
             display: flex;
             flex-direction: row-reverse;
             justify-content: flex-end;
