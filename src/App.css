@@ -305,11 +305,12 @@
   background-repeat: no-repeat;
   position: relative;
   display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .graveyard-screen .graveyard-container {
-  overflow-x: scroll;
   margin-top: 70px;
-  margin-left: 225px;
+  padding-left: 225px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
