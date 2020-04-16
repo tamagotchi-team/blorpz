@@ -53,7 +53,6 @@ function Graveyard(props) {
                                 {memorialText[Math.floor(Math.random() * memorialText.length)]}
                             </div>
                             <img src={grass} className='grass' alt='grass' />
-
                     </div>
                 
 
