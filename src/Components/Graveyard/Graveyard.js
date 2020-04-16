@@ -25,12 +25,12 @@ function Graveyard(props) {
     )
 
     useEffect(() => {
-        const audioElement = document.getElementsByClassName("audio-element")[0]
-        audioElement.play()
         axios.get(`/api/deadBlorpz/${props.userReducer.user.user_id}`).then(res => {
             setDead([...dead, ...res.data])
             console.log(res.data)
         })
+        const audioElement = document.getElementsByClassName("audio-element")[0]
+        audioElement.play()
     }, [props.userReducer.user.user_id])
 
     return (

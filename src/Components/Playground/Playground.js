@@ -56,12 +56,12 @@ function Playground(props) {
     const [background, setBackground] = useState('https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg')
 
     useEffect(() => {
-        const audioElement = document.getElementsByClassName("audio-element")[0]
-        audioElement.play()
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
             setBlorpz([...blorpz, ...res.data]);
         });
-    }, [props.userReducer.user.user_id]);
+        const audioElement = document.getElementsByClassName("audio-element")[0]
+        audioElement.play()
+    }, [props.userReducer.blorpz]);
 
     useInterval(() => {
         let tempBlorpz = [...blorpz]
@@ -90,7 +90,7 @@ function Playground(props) {
             element.age++
         })
         setBlorpz([...tempBlorpz])
-    }, 1000 * 60 * 1)
+    }, 1000 * 30)
 
     useInterval(() => {
         let tempBlorpz = [...blorpz]
@@ -100,11 +100,11 @@ function Playground(props) {
                 element.awake = false
                 setTimeout(() => {
                     element.awake = true
-                }, 1000 * 60 * 1)
+                }, 1000 * 10)
             }
         })
         setBlorpz([...tempBlorpz])
-    }, 1000 * 60 * 5)
+    }, 1000 * 60 * 1)
 
     const feedBlorp = (index) => {
         if (blorpz[index].awake === false) {
@@ -128,7 +128,7 @@ function Playground(props) {
             }, 1000 * 2);
             setTimeout(() => {
                 setPoo(true);
-            }, 1000 * 30);
+            }, 1000 * 10);
         }
     };
 
