@@ -1,5 +1,5 @@
 .login-screen {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-image: url("https://images.unsplash.com/photo-1505868900972-a7ed025e680b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80");
   height: 100vh;
   background-size: cover;
@@ -7,9 +7,8 @@
   position: relative;
   overflow: hidden;
 }
-
 .login-screen .blorpz-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 70px;
   text-align: center;
   color: black;
@@ -18,57 +17,38 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
-
 .login-screen .landing {
   text-align: center;
 }
-
 .login-screen .top-img {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
-
 .login-screen .login-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  opacity: .8;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  opacity: 0.8;
+  flex-direction: column;
+  align-items: center;
   float: right;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   clear: left;
   position: absolute;
   top: 16px;
   right: 16px;
 }
-
 .login-screen .login-container input {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 1px 2px #e6e6e6;
-          box-shadow: 0px 1px 2px #e6e6e6;
+  box-shadow: 0px 1px 2px #e6e6e6;
   border-radius: 4px;
   font-size: 20px;
   width: 350px;
   padding: 10px;
   margin-bottom: 8px;
 }
-
 .login-screen .login-container input:focus {
   outline: none;
 }
-
 .login-screen .login-container .login-button {
   background-color: #7D7878;
   border-radius: 100px;
@@ -79,16 +59,13 @@
   border: none;
   letter-spacing: 1px;
   margin-right: 28px;
-  -webkit-transition: .15s ease;
-  transition: .15s ease;
+  transition: 0.15s ease;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
-
 .login-screen .login-container .login-button:hover {
   background-color: #968B8B;
 }
-
 .login-screen .login-container .register-button {
   background-color: rgba(164, 131, 131, 0.9);
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -99,11 +76,9 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-right: 8px;
-  -webkit-transition: .15s ease;
-  transition: .15s ease;
+  transition: 0.15s ease;
   cursor: pointer;
 }
-
 .login-screen .login-container .register-button:hover {
   background-color: rgba(185, 146, 146, 0.7);
 }
@@ -116,24 +91,15 @@
   position: relative;
   overflow: hidden;
 }
-
 .create-screen .create-container {
   height: 100%;
   margin-top: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
-
 .create-screen .name-title {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   text-transform: uppercase;
   font-size: 50px;
   margin-top: 200px;
@@ -143,20 +109,17 @@
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
 }
-
 .create-screen .name-input {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 1px 2px #e6e6e6;
-          box-shadow: 0px 1px 2px #e6e6e6;
+  box-shadow: 0px 1px 2px #e6e6e6;
   border-radius: 4px;
   font-size: 20px;
   width: 350px;
   padding: 10px;
   margin-bottom: 8px;
 }
-
 .create-screen .create-button {
   background-color: #E8E8E8;
   border-radius: 100px;
@@ -170,19 +133,17 @@
   width: 45px;
   text-transform: uppercase;
   margin-right: 8px;
-  -webkit-transition: .15s ease;
-  transition: .15s ease;
+  transition: 0.15s ease;
   margin-top: 1.5px;
   cursor: pointer;
 }
-
 .create-screen .create-button p {
   margin-top: -2px;
   padding-left: -1px;
 }
 
 .nav-container {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   background-color: #00000000;
   position: fixed;
   height: 600px;
@@ -207,14 +168,11 @@
 }
 
 .nav-links {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .nav-button {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   background-color: #feff10;
   border-radius: 100px;
   padding: 10px 16px;
@@ -224,8 +182,7 @@
   border: none;
   letter-spacing: 1px;
   margin-right: 28px;
-  -webkit-transition: .15s ease;
-  transition: .15s ease;
+  transition: 0.15s ease;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.8);
   display: inline-block;
@@ -236,16 +193,13 @@
 }
 
 .link {
-  font-family: 'Indie Flower', cursive;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  font-family: "Indie Flower", cursive;
+  flex-direction: column;
   display: inline-block;
 }
 
 .link-div {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   margin-bottom: 30px;
   margin-left: 48px;
   font-weight: bolder;
@@ -257,49 +211,31 @@
   background-repeat: no-repeat;
   overflow: hidden;
 }
-
 .playground-screen .playground-container {
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   position: relative;
 }
-
 .playground-screen .blorp-img {
   height: 250px;
   width: 250px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   display: absolute;
   left: 50%;
   right: 50%;
 }
-
 .playground-screen .blorp-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-item-align: center;
-      align-self: center;
+  justify-content: center;
+  align-self: center;
   position: absolute;
   top: 55%;
   bottom: 45%;
 }
-
 .playground-screen .blorp-name {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: 'Indie Flower', cursive;
+  align-items: center;
+  font-family: "Indie Flower", cursive;
   font-size: 45px;
   text-align: center;
   display: block;
@@ -309,7 +245,7 @@
 }
 
 .playground-button {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   background-color: #2F99D4;
   border-radius: 100px;
   padding: 10px 16px;
@@ -319,8 +255,7 @@
   border: none;
   letter-spacing: 1px;
   margin-right: 28px;
-  -webkit-transition: .15s ease;
-  transition: .15s ease;
+  transition: 0.15s ease;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.8);
   display: inline-block;
@@ -347,28 +282,17 @@
 
 .progress-container {
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
   padding: 20px 20px;
   position: relative;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
 }
 
 .title {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   position: relative;
   margin-bottom: -2px;
 }
@@ -376,36 +300,24 @@
 .graveyard-screen {
   background-image: url("https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png");
   height: 100vh;
+  width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .graveyard-screen .graveyard-container {
-  width: 90vw;
   overflow-x: scroll;
   margin-top: 70px;
   margin-left: 225px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
   font-family: "Indie Flower", cursive;
   font-size: 24px;
   text-shadow: -1px 2px 1px #263848;
 }
-
 .graveyard-screen .blorp-dead {
   background-color: #8cc0ca;
   border-radius: 120px 120px 0 0;
@@ -415,46 +327,28 @@
   max-width: 225px;
   height: 27em;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
-  -webkit-box-shadow: -10px -8px 1px #ffffff;
-          box-shadow: -10px -8px 1px #ffffff;
+  flex-direction: column;
+  align-content: space-around;
+  box-shadow: -10px -8px 1px #ffffff;
   position: relative;
 }
-
 .graveyard-screen .dead-blorp-img {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   max-width: 225px;
 }
-
 .graveyard-screen .grass {
   max-width: 310px;
   position: absolute;
   bottom: -10px;
   left: -26px;
 }
-
 .graveyard-screen #memorial-text {
   height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-content: center;
+  justify-content: center;
 }
-
 .graveyard-screen .button-container {
   display: relative;
   bottom: 0;
@@ -465,4 +359,5 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /*# sourceMappingURL=App.css.map */
