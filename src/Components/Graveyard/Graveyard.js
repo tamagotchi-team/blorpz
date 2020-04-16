@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import grass from '../../assets/grass.png'
 
 function Graveyard(props) {
 
+    
     const [dead, setDead] = useState([])
+    const memorialText = [
+        `"I will ride eternal! Shiny and chrome!"`,
+        `"I made a grave mistake."`,
+        `"Avenge me."`,
+        `"That damn Carol Baskin!"`,
+        `"I put the fun in funeral."`,
+        `"To die would be a great adventure."`,
+        `"See you in hell."`,
+        `"Et tu, Blorpe?"`,
+        `"Yippee ki yay m@#*$!!"`,
+        `"Peace out."`,
+    ]
+
+    const [epitaphText, setEpitaphText] = useState(
+        Math.floor(Math.random() * memorialText.length)
+    )
 
     useEffect(() => {
         const audioElement = document.getElementsByClassName("audio-element")[0]
@@ -26,12 +44,22 @@ function Graveyard(props) {
                         className='blorp-dead'
                         key={index}>
                             <p>{dead.blorp_name}</p>
+                            <p>Age: {dead.age}</p>
                             <img 
                                 className="dead-blorp-img"
                                 src={dead.picture}
                                 alt="dead blorp memorial image" />
+<<<<<<< HEAD
                             <p>Age: {dead.age}</p>
+=======
+                            <div id='memorial-text'>
+                                {memorialText[Math.floor(Math.random() * memorialText.length)]}
+                            </div>
+                            <img src={grass} className='grass' alt='grass' />
+>>>>>>> master
                     </div>
+                
+
                 })}
             </div>
         </div>

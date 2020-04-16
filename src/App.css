@@ -206,7 +206,6 @@
 }
 
 .playground-screen {
-  background-image: url("https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg");
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -301,40 +300,54 @@
 .graveyard-screen {
   background-image: url("https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png");
   height: 100vh;
+  width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  overflow: hidden;
   display: flex;
 }
 .graveyard-screen .graveyard-container {
-  width: 100vw;
+  overflow-x: scroll;
   margin-top: 70px;
   margin-left: 225px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   font-family: "Indie Flower", cursive;
   font-size: 24px;
   text-shadow: -1px 2px 1px #263848;
-  overflow-y: scroll;
 }
 .graveyard-screen .blorp-dead {
   background-color: #8cc0ca;
   border-radius: 120px 120px 0 0;
   color: grey;
-  margin: 20px;
+  margin: 30px;
   padding: 10px;
   max-width: 225px;
-  max-height: 550px;
+  height: 27em;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-content: space-around;
+  box-shadow: -10px -8px 1px #ffffff;
+  position: relative;
 }
 .graveyard-screen .dead-blorp-img {
   align-items: center;
   max-width: 225px;
+}
+.graveyard-screen .grass {
+  max-width: 310px;
+  position: absolute;
+  bottom: -10px;
+  left: -26px;
+}
+.graveyard-screen #memorial-text {
+  height: 100px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 .graveyard-screen .button-container {
   display: relative;
