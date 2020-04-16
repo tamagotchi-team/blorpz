@@ -25,6 +25,8 @@ function Graveyard(props) {
     )
 
     useEffect(() => {
+        const audioElement = document.getElementsByClassName("audio-element")[0]
+        audioElement.play()
         axios.get(`/api/deadBlorpz/${props.userReducer.user.user_id}`).then(res => {
             setDead([...dead, ...res.data])
             console.log(res.data)
@@ -33,6 +35,9 @@ function Graveyard(props) {
 
     return (
         <div className="graveyard-screen">
+            <audio className="audio-element" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interception.mp3" type="audio/mp3">
+                <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interception.mp3"></source>
+            </audio>
             <div className="graveyard-container">
                 {dead.map((dead, index) => {
                     return <div 

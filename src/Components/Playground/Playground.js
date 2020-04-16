@@ -56,6 +56,8 @@ function Playground(props) {
     const [background, setBackground] = useState('https://www.wallpaperflare.com/static/320/774/377/pixel-art-sun-grass-clouds-wallpaper.jpg')
 
     useEffect(() => {
+        const audioElement = document.getElementsByClassName("audio-element")[0]
+        audioElement.play()
         axios.get(`/api/blorp/${props.userReducer.user.user_id}`).then((res) => {
             setBlorpz([...blorpz, ...res.data]);
         });
@@ -171,6 +173,9 @@ function Playground(props) {
 
     return (
         <div className="playground-screen" style={{ backgroundImage: `url(${background})` }}>
+            <audio className="audio-element" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Oddio_Overplay/Good_Old_Neon/This_Is_the_News/Good_Old_Neon_-_10_-_Video_Game_Soundtrack.mp3" type="audio/mp3">
+                <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Oddio_Overplay/Good_Old_Neon/This_Is_the_News/Good_Old_Neon_-_10_-_Video_Game_Soundtrack.mp3"></source>
+            </audio>
             <div className="playground-container">
                 {blorpz.map((blorp, index) => {
                     return (
