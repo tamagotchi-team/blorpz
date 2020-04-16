@@ -25,12 +25,12 @@ function Graveyard(props) {
     )
 
     useEffect(() => {
-        const audioElement = document.getElementsByClassName("audio-element")[0]
-        audioElement.play()
         axios.get(`/api/deadBlorpz/${props.userReducer.user.user_id}`).then(res => {
             setDead([...dead, ...res.data])
             console.log(res.data)
         })
+        const audioElement = document.getElementsByClassName("audio-element")[0]
+        audioElement.play()
     }, [props.userReducer.user.user_id])
 
     return (
@@ -49,14 +49,10 @@ function Graveyard(props) {
                                 className="dead-blorp-img"
                                 src={dead.picture}
                                 alt="dead blorp memorial image" />
-<<<<<<< HEAD
-                            <p>Age: {dead.age}</p>
-=======
                             <div id='memorial-text'>
                                 {memorialText[Math.floor(Math.random() * memorialText.length)]}
                             </div>
                             <img src={grass} className='grass' alt='grass' />
->>>>>>> master
                     </div>
                 
 
