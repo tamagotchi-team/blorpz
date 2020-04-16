@@ -344,14 +344,16 @@
     .graveyard-screen {
         background-image: url('https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png');
         height: 100vh;
+        width: 100vw;
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
         display: flex;
+        // overflow: auto;
 
         
         .graveyard-container {
-            width: 90vw;
+            // width: 100vw;
             overflow-x: scroll;
             margin-top: 70px;
             margin-left: 225px;
