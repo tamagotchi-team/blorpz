@@ -1,7 +1,7 @@
 
-body {
-    // font-family: 'Inter', sans-serif;
-}
+// body {
+//     // font-family: 'Inter', sans-serif;
+// }
 
 .login-screen {
     font-family: 'Inter', sans-serif;
@@ -156,10 +156,8 @@ body {
         margin-left: 10px;
         font-size: 30px;
         line-height: 20px;
-        color: 
-        #ff00a5;
-        border: 1px solid rgba($color: 
-#ff00a5, $alpha: 0.8);
+        color: #ff00a5;
+        border: 1px solid rgba($color: #ff00a5, $alpha: 0.8);
         height: 45px;
         width: 45px;
         text-transform: uppercase;
@@ -167,7 +165,6 @@ body {
         transition: .15s ease;
         margin-top: 1.5px;
         cursor: pointer;
-        
     }
 
     .create-button p {
@@ -347,43 +344,61 @@ body {
     .graveyard-screen {
         background-image: url('https://i.pinimg.com/originals/1b/ce/ae/1bceae03ecf9917dc8ce8eada5e382df.png');
         height: 100vh;
-        // background-color: green;
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
-        overflow: hidden;
         display: flex;
 
-        .graveyard-container{
-            // height: 100vw;
-            width: 100vw;
+        
+        .graveyard-container {
+            width: 90vw;
+            overflow-x: scroll;
             margin-top: 70px;
             margin-left: 225px;
             display: flex;
             flex-direction: row-reverse;
             justify-content: flex-end;
+            flex-wrap: nowrap;
             font-family: "Indie Flower", cursive;
             font-size: 24px;
             text-shadow: -1px 2px 1px #263848;
-            overflow-y: scroll;
         }
+
+
         .blorp-dead {
             background-color: #8cc0ca;
             border-radius: 120px 120px 0 0;
             color: grey;
-            margin: 20px;
+            margin: 30px;
             padding: 10px;
             max-width: 225px;
-            max-height: 550px;
+            height: 27em;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-content: space-around;
+            box-shadow: -10px -8px 1px #ffffff;
+            position: relative;
         }
-
+        
+ 
         .dead-blorp-img {
             align-items: center;
             max-width: 225px;
+        }
+
+        .grass {
+            max-width: 310px;
+            position: absolute;
+            bottom: -10px;
+            left: -26px;
+        }
+
+        #memorial-text {
+            height: 100px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
         }
 
         .button-container {
