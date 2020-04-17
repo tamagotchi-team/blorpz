@@ -17,16 +17,13 @@ app.on('activate', function () {
 });
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 1024,
-        height: 1024,
+        width: 1600,
+        height: 900,
         title: "Blorpz"
     });
     mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
     mainWindow.on('closed', function () {
         mainWindow = null
     })
-    mainWindow.on('page-title-updated', function (e) {
-        e.preventDefault()
-    }), mainWindow.webContents.openDevTools()
 }
 
